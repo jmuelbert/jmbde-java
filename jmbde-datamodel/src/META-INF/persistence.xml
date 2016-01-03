@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="jmbde_derby_PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>de.jmuelbert.jmbde.datamodel.Computer</class>
+    <class>de.jmuelbert.jmbde.datamodel.Department</class>
+    <class>de.jmuelbert.jmbde.datamodel.Processor</class>
+    <class>de.jmuelbert.jmbde.datamodel.Employee</class>
+    <class>de.jmuelbert.jmbde.datamodel.Door</class>
+    <class>de.jmuelbert.jmbde.datamodel.Systemdata</class>
+    <class>de.jmuelbert.jmbde.datamodel.Manufacturer</class>
+    <class>de.jmuelbert.jmbde.datamodel.Phone</class>
+    <class>de.jmuelbert.jmbde.datamodel.Inventory</class>
+    <class>de.jmuelbert.jmbde.datamodel.Document</class>
+    <class>de.jmuelbert.jmbde.datamodel.Place</class>
+    <class>de.jmuelbert.jmbde.datamodel.Account</class>
+    <class>de.jmuelbert.jmbde.datamodel.Doorschema</class>
+    <class>de.jmuelbert.jmbde.datamodel.Company</class>
+    <class>de.jmuelbert.jmbde.datamodel.Devicename</class>
+    <class>de.jmuelbert.jmbde.datamodel.Printer</class>
+    <class>de.jmuelbert.jmbde.datamodel.Program</class>
+    <class>de.jmuelbert.jmbde.datamodel.Os</class>
+    <class>de.jmuelbert.jmbde.datamodel.Devicetype</class>
+    <class>de.jmuelbert.jmbde.datamodel.Workfunction</class>
+    <shared-cache-mode>ALL</shared-cache-mode>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/JMBDE"/>
+      <property name="javax.persistence.jdbc.password" value="jmbde"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.user" value="jmbde"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.canonicalmodel.subpackage" value="derby"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="jmbde_mysql_PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>de.jmuelbert.jmbde.datamodel.Computer</class>
+    <class>de.jmuelbert.jmbde.datamodel.Department</class>
+    <class>de.jmuelbert.jmbde.datamodel.Processor</class>
+    <class>de.jmuelbert.jmbde.datamodel.Employee</class>
+    <class>de.jmuelbert.jmbde.datamodel.Door</class>
+    <class>de.jmuelbert.jmbde.datamodel.Systemdata</class>
+    <class>de.jmuelbert.jmbde.datamodel.Manufacturer</class>
+    <class>de.jmuelbert.jmbde.datamodel.Phone</class>
+    <class>de.jmuelbert.jmbde.datamodel.Inventory</class>
+    <class>de.jmuelbert.jmbde.datamodel.Document</class>
+    <class>de.jmuelbert.jmbde.datamodel.Place</class>
+    <class>de.jmuelbert.jmbde.datamodel.Account</class>
+    <class>de.jmuelbert.jmbde.datamodel.Doorschema</class>
+    <class>de.jmuelbert.jmbde.datamodel.Company</class>
+    <class>de.jmuelbert.jmbde.datamodel.Devicename</class>
+    <class>de.jmuelbert.jmbde.datamodel.Printer</class>
+    <class>de.jmuelbert.jmbde.datamodel.Program</class>
+    <class>de.jmuelbert.jmbde.datamodel.Os</class>
+    <class>de.jmuelbert.jmbde.datamodel.Devicetype</class>
+    <class>de.jmuelbert.jmbde.datamodel.Workfunction</class>
+    <shared-cache-mode>ALL</shared-cache-mode>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jmbde?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="jmbde"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="jmbde"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.canonicalmodel.subpackage" value="mysql"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="jmbde_mssql_PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>de.jmuelbert.jmbde.datamodel.Computer</class>
+    <class>de.jmuelbert.jmbde.datamodel.Department</class>
+    <class>de.jmuelbert.jmbde.datamodel.Processor</class>
+    <class>de.jmuelbert.jmbde.datamodel.Employee</class>
+    <class>de.jmuelbert.jmbde.datamodel.Door</class>
+    <class>de.jmuelbert.jmbde.datamodel.Systemdata</class>
+    <class>de.jmuelbert.jmbde.datamodel.Manufacturer</class>
+    <class>de.jmuelbert.jmbde.datamodel.Phone</class>
+    <class>de.jmuelbert.jmbde.datamodel.Inventory</class>
+    <class>de.jmuelbert.jmbde.datamodel.Document</class>
+    <class>de.jmuelbert.jmbde.datamodel.Place</class>
+    <class>de.jmuelbert.jmbde.datamodel.Account</class>
+    <class>de.jmuelbert.jmbde.datamodel.Doorschema</class>
+    <class>de.jmuelbert.jmbde.datamodel.Company</class>
+    <class>de.jmuelbert.jmbde.datamodel.Devicename</class>
+    <class>de.jmuelbert.jmbde.datamodel.Printer</class>
+    <class>de.jmuelbert.jmbde.datamodel.Program</class>
+    <class>de.jmuelbert.jmbde.datamodel.Os</class>
+    <class>de.jmuelbert.jmbde.datamodel.Devicetype</class>
+    <class>de.jmuelbert.jmbde.datamodel.Workfunction</class>
+    <shared-cache-mode>ALL</shared-cache-mode>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;DatabaseName=JMBDE"/>
+      <property name="javax.persistence.jdbc.user" value="jmbde"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.jdbc.sqlserver.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="jmbde"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.canonicalmodel.subpackage" value="mssql"/>
+    </properties>
+  </persistence-unit>
+</persistence>

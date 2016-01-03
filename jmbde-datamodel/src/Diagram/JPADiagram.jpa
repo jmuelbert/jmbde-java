@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" theme="MAC" persistenceUnitName="JMBDE_PU" xs="false" id="_144917600378421" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:package>de.jmuelbert.jmbde.db</jpa:package>
+    <jpa:mapped-superclass xre="false" sm="false" abstract="false" class="Device" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449394779493">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144939481155582">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="serialnumber" attribute-type="String" visibile="true" id="_144939482773383">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="active" attribute-type="boolean" visibile="true" id="_144939484825384">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="sreplace" attribute-type="boolean" visibile="true" id="_144939487310485">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144939489330986">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144939480062081">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:mapped-superclass>
+    <jpa:mapped-superclass xre="false" sm="false" abstract="false" class="Person" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449423589559">
+        <jpa:attributes>
+            <basic name="firstname" attribute-type="String" visibile="true" id="_1449423642226107">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="middlename" attribute-type="String" visibile="true" id="_1449423642811108">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="name" attribute-type="String" visibile="true" id="_1449423643407109">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="birthday" attribute-type="java.sql.Date" visibile="true" id="_1449423721270110">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="photo" attribute-type="byte[]" visibile="true" id="_1449423729101111">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="phone_home" attribute-type="String" visibile="true" id="_144959974459069">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </basic>
+            <basic name="mobile_home" attribute-type="String" visibile="true" id="_144959974661570">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </basic>
+            <basic name="mail_home" attribute-type="String" visibile="true" id="_144959974775171">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </basic>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_1449423609589106">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:mapped-superclass>
+    <jpa:mapped-superclass xre="false" sm="false" abstract="false" class="Software" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449473782912">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144947393568177">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="version" attribute-type="String" visibile="true" id="_144947393636778">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="revision" attribute-type="String" visibile="true" id="_144947398493381">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="fix" attribute-type="String" visibile="true" id="_144947411993482">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144947412240983">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144947384028065">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:mapped-superclass>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Account" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449176084341">
+        <jpa:attributes>
+            <basic name="username" attribute-type="String" visibile="true" id="_144917611175426">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="password" attribute-type="String" visibile="true" id="_144917611245127">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144917612249829">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-many mapped-by="account" collection-type="java.util.Collection" connected-entity-id="_1449394003160" connected-attribute-id="_1449395818448104" name="employee" target-entity="Employee" visibile="true" id="_1449395818458105">
+                <join-table/>
+            </one-to-many>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449176084341" name="account" target-entity="Account" visibile="true" id="_1449423959387112">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449423273367" connected-attribute-id="_1449423971102114" name="systemData" target-entity="SystemData" visibile="true" id="_1449423971101113">
+                <join-table/>
+            </one-to-one>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144917610540925">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Company" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449176269440">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144917629862936">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144939306717730">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144917628717735">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Computer" superclassId="_1449394779493" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449392562933">
+        <jpa:attributes>
+            <basic name="servicetag" attribute-type="String" visibile="true" id="_144939260768015">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="servicenumber" attribute-type="String" visibile="true" id="_144939260971616">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="memory" attribute-type="int" visibile="true" id="_144939261097617">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="network" attribute-type="String" visibile="true" id="_144939261426118">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-many collection-type="java.util.Collection" connected-entity-id="_1449395228584" name="printer" target-entity="Printer" visibile="true" id="_1449424209784128">
+                <join-table/>
+            </one-to-many>
+            <one-to-many collection-type="java.util.Collection" connected-entity-id="_1449421874459" name="program" target-entity="Program" visibile="true" id="_144947428162586">
+                <join-table/>
+            </one-to-many>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449422860445" connected-attribute-id="_1449424054613116" name="place" target-entity="Place" visibile="true" id="_1449424054607115">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449392938976" connected-attribute-id="_1449424068396118" name="department" target-entity="Department" visibile="true" id="_1449424068388117">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449421641347" connected-attribute-id="_1449424080850120" name="manufacturer" target-entity="Manufacturer" visibile="true" id="_1449424080843119">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449421467749" connected-attribute-id="_1449424094037122" name="inventory" target-entity="Inventory" visibile="true" id="_1449424094029121">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449423161370" connected-attribute-id="_1449424109341124" name="processor" target-entity="Processor" visibile="true" id="_1449424109339123">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449473820246" connected-attribute-id="_144947422895085" name="oS" target-entity="OS" visibile="true" id="_144947422880684">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="computer" optional="true" primaryKey="false" connected-entity-id="_1449393120373" connected-attribute-id="_144947584535697" name="deviceName" target-entity="DeviceName" visibile="true" id="_144947584536198">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="computer" optional="true" primaryKey="false" connected-entity-id="_1449393353772" connected-attribute-id="_1449475873942103" name="deviceType" target-entity="DeviceType" visibile="true" id="_1449475873949104">
+                <join-table/>
+            </one-to-one>
+            <many-to-many mapped-by="computer" collection-type="java.util.Collection" connected-entity-id="_1449394003160" connected-attribute-id="_144939462374878" name="employee" target-entity="Employee" visibile="true" id="_144939462374979">
+                <join-table/>
+            </many-to-many>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Department" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449392938976">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144939297651327">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="priority" attribute-type="int" visibile="true" id="_144939299101428">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144939299170029">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-many collection-type="java.util.Collection" connected-entity-id="_1449395228584" name="printer" target-entity="Printer" visibile="true" id="_144947491773991">
+                <join-table/>
+            </one-to-many>
+            <one-to-one mapped-by="department" optional="true" primaryKey="false" connected-entity-id="_1449394003160" connected-attribute-id="_144939561730994" name="employee" target-entity="Employee" visibile="true" id="_144939561731295">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="department" optional="true" primaryKey="false" connected-entity-id="_1449392562933" connected-attribute-id="_1449424068388117" name="computer" target-entity="Computer" visibile="true" id="_1449424068396118">
+                <join-table/>
+            </one-to-one>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144939295841126">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="DeviceName" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449393120373">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144939315275633">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144939315480334">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449395228584" connected-attribute-id="_144947583031496" name="printer" target-entity="Printer" visibile="true" id="_144947583031495">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449392562933" connected-attribute-id="_144947584536198" name="computer" target-entity="Computer" visibile="true" id="_144947584535697">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449395389971" connected-attribute-id="_1449475854405100" name="phone" target-entity="Phone" visibile="true" id="_144947585437899">
+                <join-table/>
+            </one-to-one>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144939313849032">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="DeviceType" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449393353772">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144939341559138">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144939343415339">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449395228584" connected-attribute-id="_1449475865831102" name="printer" target-entity="Printer" visibile="true" id="_1449475865831101">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449392562933" connected-attribute-id="_1449475873949104" name="computer" target-entity="Computer" visibile="true" id="_1449475873942103">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449395389971" connected-attribute-id="_1449475879930106" name="phone" target-entity="Phone" visibile="true" id="_1449475879915105">
+                <join-table/>
+            </one-to-one>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144939340545437">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Document" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449393714725">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144939374210145">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="document" attribute-type="byte[]" visibile="true" id="_144939376628946">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144939377138547">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-many mapped-by="document" collection-type="java.util.Collection" connected-entity-id="_1449394003160" connected-attribute-id="_1449395880650106" name="employee" target-entity="Employee" visibile="true" id="_1449395880663107">
+                <join-table/>
+            </one-to-many>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144939372850044">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Door" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449393844248">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144939386613350">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144939387040851">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-many mapped-by="door" collection-type="java.util.Collection" connected-entity-id="_1449394003160" connected-attribute-id="_144939566370496" name="employee" target-entity="Employee" visibile="true" id="_144939566370797">
+                <join-table/>
+            </one-to-many>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144939385576049">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="DoorSchema" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449393910768">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144939393512954">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="String" visibile="true" id="_144939393609755">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-many mapped-by="doorSchema" collection-type="java.util.Collection" connected-entity-id="_1449394003160" connected-attribute-id="_144939569744298" name="employee" target-entity="Employee" visibile="true" id="_144939569744799">
+                <join-table/>
+            </one-to-many>
+            <one-to-many collection-type="java.util.Collection" connected-entity-id="_1449393844248" name="door" target-entity="Door" visibile="true" id="_144942133580942">
+                <join-table/>
+            </one-to-many>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144939392651253">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Employee" superclassId="_1449423589559" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449394003160">
+        <jpa:attributes>
+            <basic name="number" attribute-type="String" visibile="true" id="_144939402670558">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="mail" attribute-type="String" visibile="true" id="_144939403221762">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="datacare" attribute-type="byte" visibile="true" id="_144939404436768">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="active" attribute-type="byte" visibile="true" id="_144939404525669">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="notes" attribute-type="String" visibile="true" id="_144939404725971">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="startdate" attribute-type="java.sql.Date" visibile="true" id="_144939404835072">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="enddate" attribute-type="java.sql.Date" visibile="true" id="_144939404932973">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="chipcard" attribute-type="String" visibile="true" id="_144959982925972">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </basic>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_1449393844248" connected-attribute-id="_144939566370797" name="door" target-entity="Door" visibile="true" id="_144939566370496">
+                <join-table/>
+            </many-to-one>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_1449393910768" connected-attribute-id="_144939569744799" name="doorSchema" target-entity="DoorSchema" visibile="true" id="_144939569744298">
+                <join-table/>
+            </many-to-one>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_1449395228584" connected-attribute-id="_1449395778553103" name="printer" target-entity="Printer" visibile="true" id="_1449395778544102">
+                <join-table/>
+            </many-to-one>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_1449176084341" connected-attribute-id="_1449395818458105" name="account" target-entity="Account" visibile="true" id="_1449395818448104">
+                <join-table/>
+            </many-to-one>
+            <many-to-one optional="true" primaryKey="false" connected-entity-id="_1449393714725" connected-attribute-id="_1449395880663107" name="document" target-entity="Document" visibile="true" id="_1449395880650106">
+                <join-table/>
+            </many-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449176269440" name="company" target-entity="Company" visibile="true" id="_144939443973077">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449392938976" connected-attribute-id="_144939561731295" name="department" target-entity="Department" visibile="true" id="_144939561730994">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449395914899" name="workFunction" target-entity="WorkFunction" visibile="true" id="_1449395991375112">
+                <join-table/>
+            </one-to-one>
+            <many-to-many collection-type="java.util.Collection" connected-entity-id="_1449392562933" connected-attribute-id="_144939462374979" name="computer" target-entity="Computer" visibile="true" id="_144939462374878">
+                <join-table/>
+            </many-to-many>
+            <many-to-many collection-type="java.util.Collection" connected-entity-id="_1449395389971" connected-attribute-id="_1449395737162101" name="phone" target-entity="Phone" visibile="true" id="_1449395737155100">
+                <join-table/>
+            </many-to-many>
+            <embedded name="address" connected-class-id="_1449176323858" attribute-type="Address" visibile="true" id="_144958938393368"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Printer" superclassId="_1449394779493" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449395228584">
+        <jpa:attributes>
+            <basic name="network" attribute-type="String" visibile="true" id="_144942301521379">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="ipaddress" attribute-type="String" visibile="true" id="_144942301591180">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="resources" attribute-type="String" visibile="true" id="_144942301790281">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="number" attribute-type="String" visibile="true" id="_144942301999482">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="pin" attribute-type="String" visibile="true" id="_144942302163783">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="color" attribute-type="String" visibile="true" id="_144942302240284">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="papersize_max" attribute-type="String" visibile="true" id="_144942302335885">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-many mapped-by="printer" collection-type="java.util.Collection" connected-entity-id="_1449394003160" connected-attribute-id="_1449395778544102" name="employee" target-entity="Employee" visibile="true" id="_1449395778553103">
+                <join-table/>
+            </one-to-many>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449421641347" connected-attribute-id="_1449424496831136" name="manufacturer" target-entity="Manufacturer" visibile="true" id="_1449424496820135">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="printer" optional="true" primaryKey="false" connected-entity-id="_1449393120373" connected-attribute-id="_144947583031495" name="deviceName" target-entity="DeviceName" visibile="true" id="_144947583031496">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="printer" optional="true" primaryKey="false" connected-entity-id="_1449393353772" connected-attribute-id="_1449475865831101" name="deviceType" target-entity="DeviceType" visibile="true" id="_1449475865831102">
+                <join-table/>
+            </one-to-one>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Phone" superclassId="_1449394779493" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449395389971">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144942277261169">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="cardnumber" attribute-type="String" visibile="true" id="_144942277535670">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="pin" attribute-type="String" visibile="true" id="_144942280218871">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="puk" attribute-type="String" visibile="true" id="_144942280369672">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449422860445" connected-attribute-id="_1449424422622132" name="place" target-entity="Place" visibile="true" id="_1449424422604131">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="phone" optional="true" primaryKey="false" connected-entity-id="_1449393120373" connected-attribute-id="_144947585437899" name="deviceName" target-entity="DeviceName" visibile="true" id="_1449475854405100">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="phone" optional="true" primaryKey="false" connected-entity-id="_1449393353772" connected-attribute-id="_1449475879915105" name="deviceType" target-entity="DeviceType" visibile="true" id="_1449475879930106">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="phone1" optional="true" primaryKey="false" connected-entity-id="_1449421641347" connected-attribute-id="_1449476158804107" name="manufacturer" target-entity="Manufacturer" visibile="true" id="_1449476158833108">
+                <join-table/>
+            </one-to-one>
+            <many-to-many mapped-by="phone" collection-type="java.util.Collection" connected-entity-id="_1449394003160" connected-attribute-id="_1449395737155100" name="employee" target-entity="Employee" visibile="true" id="_1449395737162101">
+                <join-table/>
+            </many-to-many>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="WorkFunction" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449395914899">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_1449395933412110">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_1449395939195111">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="prio" attribute-type="String" visibile="true" id="_1449423533436104">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_1449395931612109">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Inventory" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449421467749">
+        <jpa:attributes>
+            <basic name="number" optional="true" attribute-type="String" visibile="true" id="_144942150104745">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="description" attribute-type="String" visibile="true" id="_144942150178946">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="active" attribute-type="boolean" visibile="true" id="_144942150261047">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144942150336448">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-one mapped-by="inventory" optional="true" primaryKey="false" connected-entity-id="_1449392562933" connected-attribute-id="_1449424094029121" name="computer" target-entity="Computer" visibile="true" id="_1449424094037122">
+                <join-table/>
+            </one-to-one>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144942149706444">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Manufacturer" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449421641347">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144942174179752">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="name2" attribute-type="String" visibile="true" id="_144942174241653">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="supporter" attribute-type="String" visibile="true" id="_144942174655754">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="email" attribute-type="String" visibile="true" id="_144942174935855">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="fax" attribute-type="String" visibile="true" id="_144942174999956">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="hotline" attribute-type="String" visibile="true" id="_144942175058457">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="phone" attribute-type="String" visibile="true" id="_144942175125958">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144942175315059">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-one mapped-by="manufacturer" optional="true" primaryKey="false" connected-entity-id="_1449392562933" connected-attribute-id="_1449424080843119" name="computer" target-entity="Computer" visibile="true" id="_1449424080850120">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="manufacturer" optional="true" primaryKey="false" connected-entity-id="_1449395228584" connected-attribute-id="_1449424496820135" name="printer" target-entity="Printer" visibile="true" id="_1449424496831136">
+                <join-table/>
+            </one-to-one>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449395389971" connected-attribute-id="_1449476158833108" name="phone1" target-entity="Phone" visibile="true" id="_1449476158804107">
+                <join-table/>
+            </one-to-one>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144942166128950">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Program" superclassId="_1449473782912" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449421874459">
+        <jpa:attributes/>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Place" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449422860445">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144942288067075">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="room" attribute-type="String" visibile="true" id="_144942288146976">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="desk" attribute-type="String" visibile="true" id="_144942288233677">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144942288298878">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-one mapped-by="place" optional="true" primaryKey="false" connected-entity-id="_1449392562933" connected-attribute-id="_1449424054607115" name="computer" target-entity="Computer" visibile="true" id="_1449424054613116">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="place" optional="true" primaryKey="false" connected-entity-id="_1449395389971" connected-attribute-id="_1449424422604131" name="phone" target-entity="Phone" visibile="true" id="_1449424422622132">
+                <join-table/>
+            </one-to-one>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144942287623874">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="Processor" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449423161370">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144942320066289">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="ghz" attribute-type="String" visibile="true" id="_144942320121490">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="cores" attribute-type="String" visibile="true" id="_144942320178791">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144942320229392">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-one mapped-by="processor" optional="true" primaryKey="false" connected-entity-id="_1449392562933" connected-attribute-id="_1449424109339123" name="computer" target-entity="Computer" visibile="true" id="_1449424109341124">
+                <join-table/>
+            </one-to-one>
+            <jpa:id name="id1" attribute-type="Long" visibile="true" id="_144942319686088"/>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="SystemData" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449423273367">
+        <jpa:attributes>
+            <basic name="name" attribute-type="String" visibile="true" id="_144942335790996">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="local" attribute-type="String" visibile="true" id="_144942335936097">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="last_update" attribute-type="java.sql.Timestamp" visibile="true" id="_144942337226498">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <one-to-one optional="true" primaryKey="false" connected-entity-id="_1449176269440" name="company" target-entity="Company" visibile="true" id="_144942343975999">
+                <join-table/>
+            </one-to-one>
+            <one-to-one mapped-by="systemData" optional="true" primaryKey="false" connected-entity-id="_1449176084341" connected-attribute-id="_1449423971101113" name="account" target-entity="Account" visibile="true" id="_1449423971102114">
+                <join-table/>
+            </one-to-one>
+            <jpa:id name="id" attribute-type="Long" visibile="true" id="_144942329563894">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abstract="false" class="OS" superclassId="_1449473782912" visibile="true" minimized="true" rootElement="_144917600378421" id="_1449473820246">
+        <jpa:attributes>
+            <one-to-one mapped-by="oS" optional="true" primaryKey="false" connected-entity-id="_1449392562933" connected-attribute-id="_144947422880684" name="computer1" target-entity="Computer" visibile="true" id="_144947422895085">
+                <join-table/>
+            </one-to-one>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:embeddable sm="false" abstract="false" class="Address" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449176323858">
+        <jpa:attributes>
+            <basic name="street" attribute-type="String" visibile="true" id="_144917634161638">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <basic name="city" attribute-type="String" visibile="true" id="_144917634400039">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+            <embedded name="zip" connected-class-id="_1449176398264" attribute-type="Zip" visibile="true" id="_144958934760967"/>
+        </jpa:attributes>
+    </jpa:embeddable>
+    <jpa:embeddable sm="false" abstract="false" class="Zip" visibile="true" minimized="false" rootElement="_144917600378421" id="_1449176398264">
+        <jpa:attributes>
+            <basic name="zipcode" attribute-type="String" visibile="true" id="_144917641817242">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </basic>
+        </jpa:attributes>
+    </jpa:embeddable>
+    <jpa:diagram id="_144917600378422">
+        <plane elementRef="_144917600378421" id="_144917600378423_p">
+            <shape elementRef="_1449176084341" id="_1449176084341_gui">
+                <Bounds x="1679.0" y="441.0" width="146.0" height="201.0"/>
+            </shape>
+            <shape elementRef="_1449176269440" id="_1449176269440_gui">
+                <Bounds x="1361.0" y="-233.0" width="155.0" height="108.0"/>
+            </shape>
+            <shape elementRef="_1449392562933" id="_1449392562933_gui">
+                <Bounds x="680.0" y="434.0" width="158.0" height="349.0"/>
+            </shape>
+            <shape elementRef="_1449392938976" id="_1449392938976_gui">
+                <Bounds x="967.0" y="-233.0" width="170.0" height="201.0"/>
+            </shape>
+            <shape elementRef="_1449393120373" id="_1449393120373_gui">
+                <Bounds x="182.0" y="186.0" width="172.0" height="181.0"/>
+            </shape>
+            <shape elementRef="_1449393353772" id="_1449393353772_gui">
+                <Bounds x="187.0" y="-33.0" width="167.0" height="181.0"/>
+            </shape>
+            <shape elementRef="_1449393714725" id="_1449393714725_gui">
+                <Bounds x="1382.0" y="91.0" width="160.0" height="161.0"/>
+            </shape>
+            <shape elementRef="_1449393844248" id="_1449393844248_gui">
+                <Bounds x="1233.0" y="501.0" width="128.0" height="141.0"/>
+            </shape>
+            <shape elementRef="_1449393910768" id="_1449393910768_gui">
+                <Bounds x="1388.0" y="642.0" width="174.0" height="161.0"/>
+            </shape>
+            <shape elementRef="_1449394003160" id="_1449394003160_gui">
+                <Bounds x="1181.0" y="35.0" width="156.0" height="442.0"/>
+            </shape>
+            <shape elementRef="_1449395228584" id="_1449395228584_gui">
+                <Bounds x="472.0" y="-33.0" width="139.0" height="269.0"/>
+            </shape>
+            <shape elementRef="_1449395389971" id="_1449395389971_gui">
+                <Bounds x="914.0" y="509.0" width="134.0" height="229.0"/>
+            </shape>
+            <shape elementRef="_1449395914899" id="_1449395914899_gui">
+                <Bounds x="1667.0" y="20.0" width="182.0" height="128.0"/>
+            </shape>
+            <shape elementRef="_1449421467749" id="_1449421467749_gui">
+                <Bounds x="187.0" y="461.0" width="155.0" height="181.0"/>
+            </shape>
+            <shape elementRef="_1449421641347" id="_1449421641347_gui">
+                <Bounds x="1190.0" y="847.0" width="178.0" height="301.0"/>
+            </shape>
+            <shape elementRef="_1449421874459" id="_1449421874459_gui">
+                <Bounds x="611.0" y="1092.0" width="148.0" height="23.0"/>
+            </shape>
+            <shape elementRef="_1449422860445" id="_1449422860445_gui">
+                <Bounds x="1009.0" y="12.0" width="128.0" height="201.0"/>
+            </shape>
+            <shape elementRef="_1449423161370" id="_1449423161370_gui">
+                <Bounds x="438.0" y="1092.0" width="156.0" height="181.0"/>
+            </shape>
+            <shape elementRef="_1449423273367" id="_1449423273367_gui">
+                <Bounds x="1667.0" y="236.0" width="170.0" height="181.0"/>
+            </shape>
+            <shape elementRef="_1449473820246" id="_1449473820246_gui">
+                <Bounds x="798.0" y="1092.0" width="130.0" height="23.0"/>
+            </shape>
+            <shape elementRef="_1449394779493" id="_1449394779493_gui">
+                <Bounds x="661.0" y="-234.0" width="137.0" height="168.0"/>
+            </shape>
+            <shape elementRef="_1449423589559" id="_1449423589559_gui">
+                <Bounds x="1190.0" y="-234.0" width="138.0" height="228.0"/>
+            </shape>
+            <shape elementRef="_1449473782912" id="_1449473782912_gui">
+                <Bounds x="688.0" y="857.0" width="150.0" height="168.0"/>
+            </shape>
+            <shape elementRef="_1449176323858" id="_1449176323858_gui">
+                <Bounds x="1562.0" y="-234.0" width="151.0" height="109.0"/>
+            </shape>
+            <shape elementRef="_1449176398264" id="_1449176398264_gui">
+                <Bounds x="1667.0" y="-66.0" width="128.0" height="56.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>
