@@ -10,3 +10,10 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/jmbde-datamodel/nbproject/private/
+/jmbde-datamodel/build/
+/jmbde-datamodel/dist/
+/jmbde-app/jmbde-datamodel/nbproject/private/
+/jmbde-app/jmbdeDataLibrary/nbproject/private/
+/jmbde-app/jmbde-datamodel/build/
+/jmbde-app/mysql-client/build/
