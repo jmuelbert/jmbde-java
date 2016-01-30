@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-OpenIDE-Module-Localizing-Bundle: de/juergenmuelbert/jmbde/mavenproject1/branding/Bundle.properties
+OpenIDE-Module-Localizing-Bundle: de/jmuelbert/jmbde/branding/Bundle.properties
 AutoUpdate-Essential-Module: true

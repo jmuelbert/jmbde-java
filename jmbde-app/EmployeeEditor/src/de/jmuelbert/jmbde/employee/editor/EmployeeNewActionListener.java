@@ -50,7 +50,7 @@ import org.openide.windows.WindowManager;
         displayName = "#CTL_EmployeeNewActionListener"
 )
 @ActionReferences({
-    @ActionReference(path = "Menu/File", position = 1300),
+    @ActionReference(path = "Menu/File", position = 1000),
     @ActionReference(path = "Shortcuts", name = "M-N")
 })
 @Messages("CTL_EmployeeNewActionListener=New")

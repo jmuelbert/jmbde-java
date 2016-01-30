@@ -47,7 +47,7 @@ import org.openide.windows.WindowManager;
  */
 @ActionID(id="de.jmuelbert.jmbde.employee.editor.EmployeeExportActionListener", category="File")
 @ActionRegistration(displayName="#CTL_EmployeeExportActionListener")
-@ActionReference(path="Menu/File", position=20)
+@ActionReference(path="Menu/File", position=1100)
 @Messages("CTL_EmployeeExportActionListener=Export")
 public class EmployeeExportActionListener implements ActionListener {
 

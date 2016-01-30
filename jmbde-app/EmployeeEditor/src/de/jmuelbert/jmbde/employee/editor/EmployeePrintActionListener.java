@@ -49,7 +49,7 @@ import org.openide.windows.WindowManager;
 @ActionID(id="de.jmuelbert.jmbde.employee.editor.EmployeePrintActionListener", category="File")
 @ActionRegistration(displayName="#CTL_EmployeePrintActionListener")
 @ActionReferences({
-    @ActionReference(path="Menu/File", position=20),
+    @ActionReference(path="Menu/File", position=1200),
     @ActionReference(path="Toolbars/File", position=20)
 })
 @Messages("CTL_EmployeePrintActionListener=Print")

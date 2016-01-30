@@ -23,7 +23,9 @@
 package de.jmuelbert.jmbde.employee.editor;
 
 
-import de.jmuelbert.jmbde.datamodel.Employee;
+import de.jmuelbert.jmbde.datamodel.AddressSet;
+import de.jmuelbert.jmbde.datamodel.AddressSetEmployee;
+import de.jmuelbert.jmbde.datamodel.ChipCardSet;
 import de.jmuelbert.jmbde.employee.viewer.EmployeeViewerTopComponent;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -98,7 +100,7 @@ public final class EmployeeEditorTopComponent extends TopComponent implements Lo
     private Lookup.Result result = null;
     private InstanceContent instanceContent = new InstanceContent();
     private UndoRedo.Manager manager = new UndoRedo.Manager();
-    private Employee employee;
+    private AddressSetEmployee employee;
     protected static final Icon ICON = ImageUtilities.loadImageIcon("de/jmuelbert/jmbde/employee/editor/blue.png", true); //NOI18N
     // TODO Add Property Change Listener
     private static String dbConnectionString = "JMBDE_PU";
@@ -409,8 +411,8 @@ public final class EmployeeEditorTopComponent extends TopComponent implements Lo
     // End of variables declaration//GEN-END:variables
     @Override
     public void componentOpened() {
-        dbConnectionString = NbPreferences.forModule(EmployeeViewerTopComponent.class).get("datamodel", "JMBDE_DERBY_PU"); //NOI18N
-        result = WindowManager.getDefault().findTopComponent("EmployeeViewerTopComponent").getLookup().lookupResult(Employee.class);
+        dbConnectionString = NbPreferences.forModule(EmployeeViewerTopComponent.class).get("datamodel", "jmbde_derby_PU"); //NOI18N
+        result = WindowManager.getDefault().findTopComponent("EmployeeViewerTopComponent").getLookup().lookupResult(AddressSetEmployee.class);
         result.addLookupListener(this);
         resultChanged(new LookupEvent(result));
     }
@@ -436,33 +438,33 @@ public final class EmployeeEditorTopComponent extends TopComponent implements Lo
     @Override
     public void resultChanged(LookupEvent le) {
       Lookup.Result r = (Lookup.Result ) le.getSource();
-      Collection<Employee> coll = r.allInstances();
+      Collection<AddressSetEmployee> coll = r.allInstances();
       if (!coll.isEmpty()) {
-          for (Employee emp : coll) {
+          for (AddressSetEmployee emp : coll) {
               employee = emp;
               activeCheckBox.setEnabled(true);
               datacareCheckBox.setEnabled(true);
-              firstnameTextField.setText(employee.getFirstname());
+              firstnameTextField.setText(employee.getFirstName());
               nameTextField.setText(employee.getName());
-              addressTextField.setText(employee.getStreet());
-              zipcodeTextField.setText(employee.getZipcode());
-              cityTextField.setText(employee.getCity());
-              empnumberTextField.setText(employee.getNumber());
-              mailTextField.setText(employee.getMail());
-              startdateTextField.setText(employee.getStartdate().toString());
-              enddateTextField.setText(employee.getEnddate().toString());
-              chipcardTextField.setText(employee.getChipcard());
+              AddressSet adrSet = new AddressSet();
+              adrSet = employee.getAddressSet();
+              addressTextField.setText(adrSet.getStreet());
+              zipcodeTextField.setText(adrSet.getZip());
+              cityTextField.setText(adrSet.getCity());
+              empnumberTextField.setText(employee.getEmployeeNumber());
+              mailTextField.setText(employee.getBusinessMail());
+              startdateTextField.setText(employee.getStartDate().toString());
+              enddateTextField.setText(employee.getEndDate().toString());
+              ChipCardSet ccs = new ChipCardSet();
+              ccs = employee.getChipCardId();
+              if (ccs != null) {
+                chipcardTextField.setText(ccs.getName());
+              } else {
+                  chipcardTextField.setText(java.util.ResourceBundle.getBundle("de/jmuelbert/jmbde/employee/editor/Bundle").getString("[NO CHIP CARD]"));
+              }
               notesTextArea.setText(employee.getNotes());
-              if (employee.getActive() == 1) {
-                activeCheckBox.setSelected(true);
-              } else {
-                activeCheckBox.setSelected(false);
-              }
-              if (employee.getDatacare() == 1) {
-                  datacareCheckBox.setSelected(true);
-              } else {
-                  datacareCheckBox.setSelected(false);
-              }
+              activeCheckBox.setSelected(employee.getActive());
+              datacareCheckBox.setSelected(employee.getDataCare());
           }
       } else {
               activeCheckBox.setEnabled(true);
@@ -494,7 +496,7 @@ public final class EmployeeEditorTopComponent extends TopComponent implements Lo
     }
 
     void resetFields() {
-        employee = new Employee();
+        employee = new AddressSetEmployee();
               activeCheckBox.setEnabled(true);
               datacareCheckBox.setEnabled(true);
               firstnameTextField.setText(""); //NOI18N
@@ -530,7 +532,7 @@ public final class EmployeeEditorTopComponent extends TopComponent implements Lo
                 factory = Persistence.createEntityManagerFactory(dbConnectionString);
                 EntityManager entityManager = factory.createEntityManager();
                 entityManager.getTransaction().begin();
-                Employee emp = entityManager.find(Employee.class, employee.getId());
+                AddressSetEmployee emp = entityManager.find(AddressSetEmployee.class, employee.getId());
                 entityManager.remove(emp);
                 entityManager.getTransaction().commit();
             } catch(PersistenceException pe) {
@@ -578,50 +580,49 @@ public final class EmployeeEditorTopComponent extends TopComponent implements Lo
                     EntityManager entityManager = factory.createEntityManager();
                     entityManager.getTransaction().begin();
                     if (employee.getId() != null) {
-                        Employee c;
-                         c =  (Employee ) entityManager.find(Employee.class, employee.getId());
-                     
-                        c.setFirstname(firstnameTextField.getText());
+                        AddressSetEmployee c;
+                        c =  (AddressSetEmployee ) entityManager.find(AddressSetEmployee.class, employee.getId());
+                        AddressSet addrSet = new AddressSet();
+                        addrSet = c.getAddressSet();
+                        c.setFirstName(firstnameTextField.getText());
                         c.setName(nameTextField.getText());
-                        c.setStreet(addressTextField.getText());
-                        c.setCity(cityTextField.getText());
-                        c.setZipcode(zipcodeTextField.getText());
-                        c.setNumber(empnumberTextField.getText());
-                        c.setMail(mailTextField.getText());
+                        addrSet.setStreet(addressTextField.getText());
+                        addrSet.setCity(cityTextField.getText());
+                        addrSet.setZip(zipcodeTextField.getText());
+                        c.setEmployeeNumber(empnumberTextField.getText());
+                        c.setBusinessMail(mailTextField.getText());
                         String startDateStr = startdateTextField.getText();
                         Date startDate = Date.valueOf(startDateStr);
-                        c.setStartdate(new java.sql.Date(startDate.getTime()));
+                        c.setStartDate(new java.sql.Date(startDate.getTime()));
                         String endDateStr = enddateTextField.getText();
                         Date endDate = Date.valueOf(endDateStr);
-                        c.setEnddate(new java.sql.Date(endDate.getTime()));
-                        c.setChipcard(chipcardTextField.getText());
+                        c.setEndDate(new java.sql.Date(endDate.getTime()));
+                        // TODO: Handle ChipCard
+                        // c.setChipCard(chipcardTextField.getText());
                         c.setNotes(notesTextArea.getText());
-                        if (activeCheckBox.isSelected() == true) {
-                            c.setActive((short ) 1);
-                        } else {
-                            c.setActive((short ) 0);
-                        }
-                   
-                        if (datacareCheckBox.isSelected() == true) {
-                            c.setDatacare((short ) 1);
-                        } else {
-                            c.setDatacare((short ) 0);
-                        }    
+                        c.setActive(activeCheckBox.isSelected());
+                        c.setDataCare(datacareCheckBox.isSelected());
+                        c.setAddressSet(addrSet);
                         entityManager.getTransaction().commit();
                     } else {
-                        // TODO Replace with named query
-                        Query query = entityManager.createNamedQuery("Employee.findAll"); //NOI18N
-                        List<Employee> resultList = query.getResultList();
-                    
-                        employee.setId((long ) resultList.size() + 1);
-                     
-                        employee.setFirstname(firstnameTextField.getText());
+                        Query query = entityManager.createNamedQuery("AddressSetEmployee.findAll"); //NOI18N
+                        List<AddressSetEmployee> resultList = query.getResultList();
+                        
+                        // TODO: Check Address (exists)
+                        Query addrQuery =entityManager.createNamedQuery("AddressSet.findAll"); //NOI18N
+                        List<AddressSet> resultListAddr = addrQuery.getResultList();
+                        
+                        
+                        AddressSet addrSet = new AddressSet();
+                        employee.setId(resultList.size() + 1);
+                        addrSet.setId(resultListAddr.size() + 1);
+                        employee.setFirstName(firstnameTextField.getText());
                         employee.setName(nameTextField.getText());
-                        employee.setStreet(addressTextField.getText());
-                        employee.setCity(cityTextField.getText());
-                        employee.setZipcode(zipcodeTextField.getText());
-                        employee.setNumber(empnumberTextField.getText());
-                        employee.setMail(mailTextField.getText());
+                        addrSet.setStreet(addressTextField.getText());
+                        addrSet.setCity(cityTextField.getText());
+                        addrSet.setZip(zipcodeTextField.getText());
+                        // employee.setNumber(empnumberTextField.getText());
+                        employee.setBusinessMail(mailTextField.getText());
                         //  TODO Handle with Exception
                         String startDateStr = startdateTextField.getText();
                         if (startDateStr.isEmpty()) {
@@ -629,7 +630,7 @@ public final class EmployeeEditorTopComponent extends TopComponent implements Lo
                             startDateStr = "1901-01-01"; //NOI18N
                         }
                         Date startDate = Date.valueOf(startDateStr);
-                        employee.setStartdate(new java.sql.Date(startDate.getTime()));
+                        employee.setStartDate(new java.sql.Date(startDate.getTime()));
                         String endDateStr = enddateTextField.getText();
                         //  TODO Handle with Exception
                         if (endDateStr.isEmpty()) {
@@ -637,20 +638,14 @@ public final class EmployeeEditorTopComponent extends TopComponent implements Lo
                             endDateStr = "1901-01-02"; //NOI18N
                         }
                         Date endDate = Date.valueOf(endDateStr);
-                        employee.setEnddate(new java.sql.Date(endDate.getTime()));
-                        employee.setChipcard(chipcardTextField.getText());
+                        employee.setEndDate(new java.sql.Date(endDate.getTime()));
+                        // TODO: Handle ChipCard
+                        // employee.setChipCard(chipcardTextField.getText());
                         employee.setNotes(notesTextArea.getText());
-                        if (activeCheckBox.isSelected() == true) {
-                            employee.setActive((short )1);
-                        } else {
-                            employee.setActive((short ) 0);
-                        }
-                   
-                        if (datacareCheckBox.isSelected() == true) {
-                            employee.setDatacare((short ) 1);
-                        } else {
-                            employee.setDatacare((short ) 0);
-                        }    
+                        employee.setActive(activeCheckBox.isSelected());
+                        employee.setDataCare(datacareCheckBox.isSelected());
+                        employee.setAddressSet(addrSet);
+                        entityManager.persist(addrSet);
                         entityManager.persist(employee);
                         entityManager.getTransaction().commit();                                                    
                     }

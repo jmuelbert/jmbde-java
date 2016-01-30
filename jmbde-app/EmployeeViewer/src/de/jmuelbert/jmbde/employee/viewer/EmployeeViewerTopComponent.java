@@ -21,7 +21,7 @@
 
 package de.jmuelbert.jmbde.employee.viewer;
 
-import de.jmuelbert.jmbde.datamodel.Employee;
+import de.jmuelbert.jmbde.datamodel.AddressSetEmployee;
 import java.awt.BorderLayout;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -101,8 +101,8 @@ public final class EmployeeViewerTopComponent extends TopComponent implements Ex
         try {
             factory = Persistence.createEntityManagerFactory(dbConnectionString);
             EntityManager entityManager = factory.createEntityManager();
-            Query query = entityManager.createNamedQuery("Employee.findAll"); //NOI18N
-            List<Employee> resultList = query.getResultList();
+            Query query = entityManager.createNamedQuery("AddressSetEmployee.findAll"); //NOI18N
+            List<AddressSetEmployee> resultList = query.getResultList();
             em.setRootContext(new EmployeeRootNode(Children.create(new EmployeeChildFactory(resultList), true)));
         } catch(PersistenceException pe) {
             // TODO Handle with Exception and Dialog!

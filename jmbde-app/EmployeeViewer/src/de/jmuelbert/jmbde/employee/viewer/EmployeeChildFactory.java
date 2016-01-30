@@ -21,7 +21,7 @@
 
 package de.jmuelbert.jmbde.employee.viewer;
 
-import de.jmuelbert.jmbde.datamodel.Employee;
+import de.jmuelbert.jmbde.datamodel.AddressSetEmployee;
 import java.beans.IntrospectionException;
 import java.util.List;
 import org.openide.nodes.BeanNode;
@@ -47,9 +47,9 @@ import org.openide.util.lookup.Lookups;
  * @see org.openide.util.Exceptions
  * @see org.openide.util.lookup.Lookups
  */
-public class EmployeeChildFactory extends ChildFactory<Employee> {
+public class EmployeeChildFactory extends ChildFactory<AddressSetEmployee> {
     
-    private List<Employee> resultList;
+    private List<AddressSetEmployee> resultList;
     
    public EmployeeChildFactory() {
     }
@@ -58,7 +58,7 @@ public class EmployeeChildFactory extends ChildFactory<Employee> {
      * The Construtor
      * @param resultList 
      */
-    public EmployeeChildFactory(List<Employee> resultList) {
+    public EmployeeChildFactory(List<AddressSetEmployee> resultList) {
         this.resultList = resultList;
     }   
 
@@ -71,8 +71,8 @@ public class EmployeeChildFactory extends ChildFactory<Employee> {
      * @return true if the list created correct.
      */
     @Override
-    protected boolean createKeys(List<Employee> list) {
-        for (Employee employee : resultList) {
+    protected boolean createKeys(List<AddressSetEmployee> list) {
+        for (AddressSetEmployee employee : resultList) {
             list.add(employee);
         }
         return true;
@@ -85,7 +85,7 @@ public class EmployeeChildFactory extends ChildFactory<Employee> {
      * @exception IntrospectionException by Error return null
      */
     @Override
-    protected Node createNodeForKey(Employee e) {
+    protected Node createNodeForKey(AddressSetEmployee e) {
         try {
             return new EmployeeBeanNode(e);
         } catch (IntrospectionException ex) {
@@ -98,7 +98,7 @@ public class EmployeeChildFactory extends ChildFactory<Employee> {
      *
      */
     private class EmployeeBeanNode extends BeanNode {
-        public EmployeeBeanNode(Employee bean) throws IntrospectionException {
+        public EmployeeBeanNode(AddressSetEmployee bean) throws IntrospectionException {
             super(bean, Children.LEAF, Lookups.singleton(bean));
         }
     }

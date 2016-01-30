@@ -21,7 +21,7 @@
 
 package de.jmuelbert.jmbde.employee.viewer;
 
-import de.jmuelbert.jmbde.datamodel.Employee;
+import de.jmuelbert.jmbde.datamodel.AddressSetEmployee;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -69,7 +69,7 @@ public class EmployeeChildFactoryIT {
     @Test
     public void testCreateKeys() {
         System.out.println("createKeys");
-        List<Employee> list = null;
+        List<AddressSetEmployee> list = null;
         EmployeeChildFactory instance = new EmployeeChildFactory();
         boolean expResult = false;
         boolean result = instance.createKeys(list);
@@ -84,7 +84,7 @@ public class EmployeeChildFactoryIT {
     @Test
     public void testCreateNodeForKey() {
         System.out.println("createNodeForKey");
-        Employee e = null;
+        AddressSetEmployee e = null;
         EmployeeChildFactory instance = new EmployeeChildFactory();
         Node expResult = null;
         Node result = instance.createNodeForKey(e);
