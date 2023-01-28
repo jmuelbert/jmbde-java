@@ -4,10 +4,10 @@ name: "Write good"
 on:
     push:
         branches:
-            - main
+            - master
     pull_request:
         branches:
-            - main
+            - master
 
 jobs:
     write_good_job:
