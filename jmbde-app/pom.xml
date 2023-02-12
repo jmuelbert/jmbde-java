@@ -247,8 +247,8 @@
                 <version>4.0.0-M4</version>
                 <configuration>
                     <locales>en,de</locales>
-		</configuration>
-            </plugin>
+		        </configuration>
+		    </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>clirr-maven-plugin</artifactId>
@@ -292,9 +292,9 @@
     </build>
 
     <modules>
-        <module>branding</module>
-        <module>EmployeeEditor</module>
-        <module>EmployeeViewer</module>
+        <!-- module>branding</module -->
+        <!-- module>EmployeeEditor</module-->
+        <!-- module>EmployeeViewer</module-->
     </modules>
 
    <!-- To use the report goals in your POM or Parent POM -->

@@ -6,50 +6,44 @@
 
 version: 2
 updates:
-    - package-ecosystem: "github-actions" # See documentation for possible values
-      directory: "/" # Location of package manifests
-      schedule:
-          interval: "weekly"
-          day: "friday"
-      commit-message:
-          prefix: ":rocket: gha"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: ":rocket: gha"
 
-    - package-ecosystem: "docker" # See documentation for possible values
-      directory: "/" # Location of package manifests
-      schedule:
-          interval: "weekly"
-          day: "friday"
-      commit-message:
-          prefix: ":rocket: docker"
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: ":rocket: docker"
 
-    - package-ecosystem: "bundler" # See documentation for possible values
-      directory: "/" # Location of package manifests
-      schedule:
-          interval: "weekly"
-          day: "friday"
-      commit-message:
-          prefix: ":rocket: bundler"
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: ":rocket: bundler"
 
-    - package-ecosystem: "npm" # See documentation for possible values
-      directory: "/" # Location of package manifests
-      schedule:
-          interval: "weekly"
-          day: "friday"
-      commit-message:
-          prefix: ":rocket: npm"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: ":rocket: npm"
 
-    - package-ecosystem: "pip" # See documentation for possible values
-      directory: "/**" # Location of package manifests
-      schedule:
-          interval: "weekly"
-          day: "friday"
-      commit-message:
-          prefix: ":rocket: pip"
-          
-    - package-ecosystem: "maven" # See documentation for possible values
-      directory: "/" # Location of package manifests
-      schedule:
-          interval: "weekly"
-          day: "friday"
-      commit-message:
-          prefix: ":rocket: maven"
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: ":rocket: pip"
+
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: ":rocket: maven"
