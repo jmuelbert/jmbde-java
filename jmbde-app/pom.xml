@@ -6,9 +6,17 @@
     <artifactId>jmbde</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <netbeans.version>RELEASE81</netbeans.version>
+        <brandingToken>jmbde</brandingToken>
+        <kotlin.version>1.7.20</kotlin.version>
+        <sonar.organization>jmuelbert</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    </properties>
     <name>jmbde</name>
-
     <description>
         jmbde is a little BDE Tool. Within
         can collect data of employee's,
@@ -17,8 +25,8 @@
     <url>http://www.juergen-muelbert.de/</url>
     <licenses>
         <license>
-            <name>EUPL V1.1</name>
-            <url>http://www.osor.eu/eupl/european-union-public-licence-eupl-v.1.1</url>
+            <name>EUPL V1.22</name>
+            <url>http://www.osor.eu/eupl/european-union-public-licence-eupl-v.1.2</url>
             <distribution>repo</distribution>
             <comments>The European Public License</comments>
         </license>
@@ -39,50 +47,48 @@
         </developer>
     </developers>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>19</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>19</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-    <!--
+
     <issueManagement>
-        <system>TO DO</system>
-        <url></url>
+        <system>GitHub</system>
+        <url>https://github.com/jmuelbert/jmbde-java/issues</url>
     </issueManagement>
 
-    <ciManagement>
-        <system>continuum</system>
-        <url>http://127.0.0.1:8080/continuum</url>
-        <notifiers>
-            <notifier>
-                <type>mail</type>
-                <sendOnError>true</sendOnError>
-                <sendOnFailure>true</sendOnFailure>
-                <sendOnSuccess>false</sendOnSuccess>
-                <sendOnWarning>false</sendOnWarning>
-                <configuration><address>continuum@127.0.0.1</address></configuration>
-            </notifier>
-	</notifiers>
-    </ciManagement>
-
-    <mailingLists>
-        <mailingList>
-            <name>User List</name>
-            <subscribe>user-subscribe@127.0.0.1</subscribe>
-            <unsubscribe>user-unsubscribe@127.0.0.1</unsubscribe>
-            <post>user@127.0.0.1</post>
-            <archive>http://127.0.0.1/user/</archive>
-            <otherArchives>
-                <otherArchive>http://base.google.com/base/1/127.0.0.1</otherArchive>
-            </otherArchives>
-        </mailingList>
-    </mailingLists>
-
-
     <scm>
-        <connection>scm:bazaar:https://launchpad.net/nsis4java/</connection>
-        <developerConnection>scm:bazaar:https://launchpad.net/nsis4java/</developerConnection>
+        <connection>scm:git:https://github.com/jmuelbert/jmbde-java.git</connection>
+        <developerConnection>scm:git:git@github.com:jmuelbert/jmbde-java.git</developerConnection>
+        <url>${project.url}</url>
         <tag>HEAD</tag>
-        <url>https://launchpad.net/nsis4java/trunk</url>
     </scm>
-
-    -->
 
     <build>
         <pluginManagement>
@@ -103,8 +109,7 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.10.1</version>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
+                        <release>11</release>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -118,7 +123,24 @@
                     <artifactId>maven-maven-plugin</artifactId>
                     <version>3.5</version>
                 </plugin>
-
+                <plugin>
+                    <groupId>com.github.ferstl</groupId>
+                    <artifactId>depgraph-maven-plugin</artifactId>
+                    <version>4.0.2</version>
+                </plugin>
+                <!-- plugin>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-maven-plugin</artifactId>
+                    <version>0.0.8</version>
+                    <executions>
+                        <execution>
+                            <id>default-cli</id>
+                            <configuration>
+                                <mainClass>com.example.App</mainClass>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugins -->
                 <!-- My adds -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -178,6 +200,11 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>com.github.ferstl</groupId>
+                <artifactId>depgraph-maven-plugin</artifactId>
+                <version>4.0.2</version>
+              </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
@@ -317,23 +344,23 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.4.1</version>
                 <configuration>
-		<source>1.8</source>
-		<target>1.6</target>
-		<encoding>UTF-8</encoding>
-		<maxmemory>256m</maxmemory>
-		<links>
-                    <link>http://java.sun.com/javase/6/docs/api/</link>
-		</links>
-		</configuration>
-		<reportSets>
+		            <source>1.8</source>
+		            <target>1.6</target>
+		            <encoding>UTF-8</encoding>
+		            <maxmemory>256m</maxmemory>
+		            <links>
+                        <link>http://java.sun.com/javase/6/docs/api/</link>
+		            </links>
+		        </configuration>
+		        <reportSets>
                     <reportSet>
                         <id>non-aggregate</id>
-			<reports>
+			            <reports>
                             <report>javadoc</report>
-                                <report>test-javadoc</report>
+                            <report>test-javadoc</report>
                         </reports>
                     </reportSet>
-                 </reportSets>
+                </reportSets>
             </plugin>
 
             <plugin>
@@ -385,31 +412,4 @@
         </plugins>
     </reporting>
 
-    <properties>
-        <netbeans.version>RELEASE81</netbeans.version>
-        <brandingToken>jmbde</brandingToken>
-        <kotlin.version>1.7.20</kotlin.version>
-        <sonar.organization>jmuelbert</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-jdk8</artifactId>
-            <version>${kotlin.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-test</artifactId>
-            <version>${kotlin.version}</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 </project>
