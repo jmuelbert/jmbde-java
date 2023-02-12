@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.jmuelbert.jmbde</groupId>
     <artifactId>jmbde</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.release>19</maven.compiler.release>
+        <javafx.version>19.0.2.1</javafx.version>
+        <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
         <netbeans.version>RELEASE81</netbeans.version>
         <brandingToken>jmbde</brandingToken>
-        <kotlin.version>1.7.20</kotlin.version>
         <sonar.organization>jmuelbert</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
@@ -25,7 +25,7 @@
     <url>http://www.juergen-muelbert.de/</url>
     <licenses>
         <license>
-            <name>EUPL V1.22</name>
+            <name>EUPL V1.2</name>
             <url>http://www.osor.eu/eupl/european-union-public-licence-eupl-v.1.2</url>
             <distribution>repo</distribution>
             <comments>The European Public License</comments>
@@ -51,28 +51,17 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>19</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>19</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-jdk8</artifactId>
-            <version>${kotlin.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-test</artifactId>
-            <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -128,19 +117,25 @@
                     <artifactId>depgraph-maven-plugin</artifactId>
                     <version>4.0.2</version>
                 </plugin>
-                <!-- plugin>
+                <plugin>
                     <groupId>org.openjfx</groupId>
                     <artifactId>javafx-maven-plugin</artifactId>
-                    <version>0.0.8</version>
+                    <version>${javafx.maven.plugin.version}</version>
+                    <configuration>
+                        <release>${maven.compiler.release}</release>
+                        <jlinkImageName>hellofx</jlinkImageName>
+                        <launcher>launcher</launcher>
+                        <mainClass>de.jmuelbert.jmbde.App</mainClass>
+                    </configuration>
                     <executions>
                         <execution>
                             <id>default-cli</id>
                             <configuration>
-                                <mainClass>com.example.App</mainClass>
+                                <mainClass>de.jmuelbert.jmbde.App</mainClass>
                             </configuration>
                         </execution>
                     </executions>
-                </plugins -->
+                </plugin>
                 <!-- My adds -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -204,13 +199,13 @@
                 <groupId>com.github.ferstl</groupId>
                 <artifactId>depgraph-maven-plugin</artifactId>
                 <version>4.0.2</version>
-              </plugin>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
                 <version>3.4.2</version>
             </plugin>
-           <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.20.0</version>
@@ -248,13 +243,13 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.4.1</version>
                 <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-                <encoding>UTF-8</encoding>
-                <maxmemory>1g</maxmemory>
-                <links>
-                    <link>http://java.sun.com/javase/8/docs/api/</link>
-                </links>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <maxmemory>1g</maxmemory>
+                    <links>
+                        <link>http://java.sun.com/javase/8/docs/api/</link>
+                    </links>
                 </configuration>
                 <executions>
                     <execution>
@@ -262,7 +257,6 @@
                         <phase>verify</phase>
                         <goals>
                             <goal>jar</goal>
-                            <goal>nbm</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -274,8 +268,8 @@
                 <version>4.0.0-M4</version>
                 <configuration>
                     <locales>en,de</locales>
-		        </configuration>
-		    </plugin>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>clirr-maven-plugin</artifactId>
@@ -291,30 +285,6 @@
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>3.3.0</version>
             </plugin>
-            <plugin>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-maven-plugin</artifactId>
-                <version>${kotlin.version}</version>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>test-compile</id>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>test-compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <jvmTarget>1.8</jvmTarget>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -324,7 +294,7 @@
         <!-- module>EmployeeViewer</module-->
     </modules>
 
-   <!-- To use the report goals in your POM or Parent POM -->
+    <!-- To use the report goals in your POM or Parent POM -->
     <reporting>
         <plugins>
             <plugin>
@@ -344,18 +314,18 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.4.1</version>
                 <configuration>
-		            <source>1.8</source>
-		            <target>1.6</target>
-		            <encoding>UTF-8</encoding>
-		            <maxmemory>256m</maxmemory>
-		            <links>
+                    <source>1.8</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                    <maxmemory>256m</maxmemory>
+                    <links>
                         <link>http://java.sun.com/javase/6/docs/api/</link>
-		            </links>
-		        </configuration>
-		        <reportSets>
+                    </links>
+                </configuration>
+                <reportSets>
                     <reportSet>
                         <id>non-aggregate</id>
-			            <reports>
+                        <reports>
                             <report>javadoc</report>
                             <report>test-javadoc</report>
                         </reports>
