@@ -12,6 +12,8 @@
         <maven.compiler.release>17</maven.compiler.release>
         <javafx.version>17.0.6</javafx.version>
         <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
+        <sonar.organization>jmuelbert</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <name>jmbde</name>
