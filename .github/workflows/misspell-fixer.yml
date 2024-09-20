@@ -40,12 +40,7 @@ jobs:
       - name: Check for changes
         run: git diff --exit-code ${{ github.sha }}
 
-<<<<<<< HEAD
       - name: Create Pull Request for typos
-=======
-      - name: "Pull Request"
-        uses: peter-evans/create-pull-request@v7
->>>>>>> 7d8e5a3d4ed3cb69d16b999ae8dbf3f8c1ffb432
         if: failure()
         uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 # v5.0.2
         with:
