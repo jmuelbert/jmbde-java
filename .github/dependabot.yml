@@ -40,10 +40,3 @@ updates:
       interval: "daily"
     commit-message:
       prefix: ":rocket: pip"
-
-  - package-ecosystem: "maven"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    commit-message:
-      prefix: ":rocket: maven"
