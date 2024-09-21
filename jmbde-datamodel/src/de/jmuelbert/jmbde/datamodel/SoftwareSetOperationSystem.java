@@ -1,4 +1,4 @@
- /**
+/**
  * JMBDE - Datamodel
  *
  *
@@ -39,8 +39,8 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * The SoftwareSetOperationSystem Entity
- * 
- * 
+ *
+ *
  * @author Jürgen Mülbert
  * @version 0.4
  *
@@ -51,76 +51,73 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "SoftwareSet_OperationSystem")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "SoftwareSetOperationSystem.findAll", query = "SELECT s FROM SoftwareSetOperationSystem s"),
-    @NamedQuery(name = "SoftwareSetOperationSystem.findById", query = "SELECT s FROM SoftwareSetOperationSystem s WHERE s.id = :id")})
+  @NamedQuery(name = "SoftwareSetOperationSystem.findAll",
+              query = "SELECT s FROM SoftwareSetOperationSystem s")
+  ,
+      @NamedQuery(
+          name = "SoftwareSetOperationSystem.findById",
+          query = "SELECT s FROM SoftwareSetOperationSystem s WHERE s.id = :id")
+})
 public class SoftwareSetOperationSystem implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Id")
-    private Integer id;
-    @OneToMany(mappedBy = "operationSystemId")
-    private Collection<DeviceSetComputer> deviceSetComputerCollection;
-    @JoinColumn(name = "Id", referencedColumnName = "Id", insertable = false, updatable = false)
-    @OneToOne(optional = false)
-    private SoftwareSet softwareSet;
+  private static final long serialVersionUID = 1L;
+  @Id @Basic(optional = false) @Column(name = "Id") private Integer id;
+  @OneToMany(mappedBy = "operationSystemId")
+  private Collection<DeviceSetComputer> deviceSetComputerCollection;
+  @JoinColumn(name = "Id", referencedColumnName = "Id", insertable = false,
+              updatable = false)
+  @OneToOne(optional = false)
+  private SoftwareSet softwareSet;
 
-    public SoftwareSetOperationSystem() {
-    }
+  public SoftwareSetOperationSystem() {}
 
-    public SoftwareSetOperationSystem(Integer id) {
-        this.id = id;
-    }
+  public SoftwareSetOperationSystem(Integer id) { this.id = id; }
 
-    public Integer getId() {
-        return id;
-    }
+  public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setId(Integer id) { this.id = id; }
 
-    @XmlTransient
-    public Collection<DeviceSetComputer> getDeviceSetComputerCollection() {
-        return deviceSetComputerCollection;
-    }
+  @XmlTransient
+  public Collection<DeviceSetComputer> getDeviceSetComputerCollection() {
+    return deviceSetComputerCollection;
+  }
 
-    public void setDeviceSetComputerCollection(Collection<DeviceSetComputer> deviceSetComputerCollection) {
-        this.deviceSetComputerCollection = deviceSetComputerCollection;
-    }
+  public void setDeviceSetComputerCollection(
+      Collection<DeviceSetComputer> deviceSetComputerCollection) {
+    this.deviceSetComputerCollection = deviceSetComputerCollection;
+  }
 
-    public SoftwareSet getSoftwareSet() {
-        return softwareSet;
-    }
+  public SoftwareSet getSoftwareSet() { return softwareSet; }
 
-    public void setSoftwareSet(SoftwareSet softwareSet) {
-        this.softwareSet = softwareSet;
-    }
+  public void setSoftwareSet(SoftwareSet softwareSet) {
+    this.softwareSet = softwareSet;
+  }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+  @Override
+  public int hashCode() {
+    int hash = 0;
+    hash += (id != null ? id.hashCode() : 0);
+    return hash;
+  }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof SoftwareSetOperationSystem)) {
-            return false;
-        }
-        SoftwareSetOperationSystem other = (SoftwareSetOperationSystem) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not
+    // set
+    if (!(object instanceof SoftwareSetOperationSystem)) {
+      return false;
     }
+    SoftwareSetOperationSystem other = (SoftwareSetOperationSystem)object;
+    if ((this.id == null && other.id != null) ||
+        (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
+  }
 
-    @Override
-    public String toString() {
-        return "de.jmuelbert.jmbde.datamodel.SoftwareSetOperationSystem[ id=" + id + " ]";
-    }
-    
+  @Override
+  public String toString() {
+    return "de.jmuelbert.jmbde.datamodel.SoftwareSetOperationSystem[ id=" + id +
+        " ]";
+  }
 }

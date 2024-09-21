@@ -30,7 +30,7 @@ import org.openide.util.NbBundle.Messages;
 /**
  * The Employee Root Refresh Listener
  * w
- * 
+ *
  * @author Jürgen Mülbert
  * @version 0.2
  *
@@ -40,14 +40,15 @@ import org.openide.util.NbBundle.Messages;
  * @see org.openide.awt.ActionRegistration
  * @see org.openide.util.NbBundle.Messages
  */
-@ActionID(id="de.jmuelbert.jmbde.employee.viewer.EmployeeRootRefreshActionListener", category="Employee")
-@ActionRegistration(displayName="#CTL_EmployeeRootRefreshActionListener")
+@ActionID(
+    id = "de.jmuelbert.jmbde.employee.viewer.EmployeeRootRefreshActionListener",
+    category = "Employee")
+@ActionRegistration(displayName = "#CTL_EmployeeRootRefreshActionListener")
 @Messages("CTL_EmployeeRootRefreshActionListener=Refresh")
 public class EmployeeRootRefreshActionListener implements ActionListener {
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-       EmployeeViewerTopComponent.refreshNode();
-    }
-    
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    EmployeeViewerTopComponent.refreshNode();
+  }
 }

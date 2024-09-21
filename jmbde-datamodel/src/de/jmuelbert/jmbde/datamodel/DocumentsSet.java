@@ -1,4 +1,4 @@
- /**
+/**
  * JMBDE - Datamodel
  *
  *
@@ -38,133 +38,112 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
- /**
+/**
  * The DocumentsSet Entity
- * 
- * 
+ *
+ *
  * @author Jürgen Mülbert
  * @version 0.4
  *
  */
 
-
-
 @Entity
 @Table(name = "DocumentsSet")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "DocumentsSet.findAll", query = "SELECT d FROM DocumentsSet d"),
-    @NamedQuery(name = "DocumentsSet.findById", query = "SELECT d FROM DocumentsSet d WHERE d.id = :id"),
-    @NamedQuery(name = "DocumentsSet.findByName", query = "SELECT d FROM DocumentsSet d WHERE d.name = :name"),
-    @NamedQuery(name = "DocumentsSet.findByLastUpdate", query = "SELECT d FROM DocumentsSet d WHERE d.lastUpdate = :lastUpdate"),
-    @NamedQuery(name = "DocumentsSet.findByDescription", query = "SELECT d FROM DocumentsSet d WHERE d.description = :description")})
+  @NamedQuery(name = "DocumentsSet.findAll",
+              query = "SELECT d FROM DocumentsSet d")
+  ,
+      @NamedQuery(name = "DocumentsSet.findById",
+                  query = "SELECT d FROM DocumentsSet d WHERE d.id = :id"),
+      @NamedQuery(name = "DocumentsSet.findByName",
+                  query = "SELECT d FROM DocumentsSet d WHERE d.name = :name"),
+      @NamedQuery(
+          name = "DocumentsSet.findByLastUpdate",
+          query =
+              "SELECT d FROM DocumentsSet d WHERE d.lastUpdate = :lastUpdate"),
+      @NamedQuery(
+          name = "DocumentsSet.findByDescription",
+          query =
+              "SELECT d FROM DocumentsSet d WHERE d.description = :description")
+})
 public class DocumentsSet implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Id")
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "Name")
-    private String name;
-    @Lob
-    @Column(name = "Document")
-    private byte[] document;
-    @Basic(optional = false)
-    @Column(name = "LastUpdate")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastUpdate;
-    @Column(name = "Description")
-    private String description;
-    @JoinColumn(name = "Employee_Id", referencedColumnName = "Id")
-    @ManyToOne(optional = false)
-    private AddressSetEmployee employeeId;
+  private static final long serialVersionUID = 1L;
+  @Id @Basic(optional = false) @Column(name = "Id") private Integer id;
+  @Basic(optional = false) @Column(name = "Name") private String name;
+  @Lob @Column(name = "Document") private byte[] document;
+  @Basic(optional = false)
+  @Column(name = "LastUpdate")
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date lastUpdate;
+  @Column(name = "Description") private String description;
+  @JoinColumn(name = "Employee_Id", referencedColumnName = "Id")
+  @ManyToOne(optional = false)
+  private AddressSetEmployee employeeId;
 
-    public DocumentsSet() {
-    }
+  public DocumentsSet() {}
 
-    public DocumentsSet(Integer id) {
-        this.id = id;
-    }
+  public DocumentsSet(Integer id) { this.id = id; }
 
-    public DocumentsSet(Integer id, String name, Date lastUpdate) {
-        this.id = id;
-        this.name = name;
-        this.lastUpdate = lastUpdate;
-    }
+  public DocumentsSet(Integer id, String name, Date lastUpdate) {
+    this.id = id;
+    this.name = name;
+    this.lastUpdate = lastUpdate;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setId(Integer id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) { this.name = name; }
 
-    public byte[] getDocument() {
-        return document;
-    }
+  public byte[] getDocument() { return document; }
 
-    public void setDocument(byte[] document) {
-        this.document = document;
-    }
+  public void setDocument(byte[] document) { this.document = document; }
 
-    public Date getLastUpdate() {
-        return lastUpdate;
-    }
+  public Date getLastUpdate() { return lastUpdate; }
 
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
+  public void setLastUpdate(Date lastUpdate) { this.lastUpdate = lastUpdate; }
 
-    public String getDescription() {
-        return description;
-    }
+  public String getDescription() { return description; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public AddressSetEmployee getEmployeeId() {
-        return employeeId;
-    }
+  public AddressSetEmployee getEmployeeId() { return employeeId; }
 
-    public void setEmployeeId(AddressSetEmployee employeeId) {
-        this.employeeId = employeeId;
-    }
+  public void setEmployeeId(AddressSetEmployee employeeId) {
+    this.employeeId = employeeId;
+  }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+  @Override
+  public int hashCode() {
+    int hash = 0;
+    hash += (id != null ? id.hashCode() : 0);
+    return hash;
+  }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof DocumentsSet)) {
-            return false;
-        }
-        DocumentsSet other = (DocumentsSet) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not
+    // set
+    if (!(object instanceof DocumentsSet)) {
+      return false;
     }
+    DocumentsSet other = (DocumentsSet)object;
+    if ((this.id == null && other.id != null) ||
+        (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
+  }
 
-    @Override
-    public String toString() {
-        return "de.jmuelbert.jmbde.datamodel.DocumentsSet[ id=" + id + " ]";
-    }
-    
+  @Override
+  public String toString() {
+    return "de.jmuelbert.jmbde.datamodel.DocumentsSet[ id=" + id + " ]";
+  }
 }

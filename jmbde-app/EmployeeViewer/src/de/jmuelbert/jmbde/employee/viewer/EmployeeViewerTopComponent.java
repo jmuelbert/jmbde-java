@@ -42,9 +42,9 @@ import org.openide.windows.TopComponent;
 
 /**
  * The Employee Viewer Topcomponent
- * 
+ *
  * View Employee Data
- * 
+ *
  * @author Jürgen Mülbert
  * @version 0.2
  *
@@ -55,104 +55,104 @@ import org.openide.windows.TopComponent;
  * @see org.openide.util.NbBundle.Messages
  */
 @ConvertAsProperties(
-        dtd = "-//de.jmuelbert.jmbde.employee.viewer/EmployeeViewer//EN",
-        autostore = false
-)
-@TopComponent.Description(
-        preferredID = "EmployeeViewerTopComponent",
-        //iconBase="SET/PATH/TO/ICON/HERE",
-        persistenceType = TopComponent.PERSISTENCE_ALWAYS
-)
+    dtd = "-//de.jmuelbert.jmbde.employee.viewer/EmployeeViewer//EN",
+    autostore = false)
+@TopComponent.Description(preferredID = "EmployeeViewerTopComponent",
+                          // iconBase="SET/PATH/TO/ICON/HERE",
+                          persistenceType = TopComponent.PERSISTENCE_ALWAYS)
 @TopComponent.Registration(mode = "explorer", openAtStartup = true)
-@ActionID(category = "Window", id = "de.jmuelbert.jmbde.employee.viewer.EmployeeViewerTopComponent")
+@ActionID(category = "Window",
+          id = "de.jmuelbert.jmbde.employee.viewer.EmployeeViewerTopComponent")
 @ActionReference(path = "Menu/Window" /*, position = 333 */)
-@TopComponent.OpenActionRegistration(
-        displayName = "#CTL_EmployeeViewerAction",
-        preferredID = "EmployeeViewerTopComponent"
-)
-@Messages({
-    "CTL_EmployeeViewerAction=EmployeeViewer",
-    "CTL_EmployeeViewerTopComponent=EmployeeViewer Window",
-    "HINT_EmployeeViewerTopComponent=This is a EmployeeViewer window"
-})
-public final class EmployeeViewerTopComponent extends TopComponent implements ExplorerManager.Provider {
+@TopComponent.OpenActionRegistration(displayName = "#CTL_EmployeeViewerAction",
+                                     preferredID = "EmployeeViewerTopComponent")
+@Messages({"CTL_EmployeeViewerAction=EmployeeViewer",
+           "CTL_EmployeeViewerTopComponent=EmployeeViewer Window",
+           "HINT_EmployeeViewerTopComponent=This is a EmployeeViewer window"})
+public final class EmployeeViewerTopComponent
+    extends TopComponent implements ExplorerManager.Provider {
 
-    private static final long serialVersionUID = 1L;
-    private static ExplorerManager em = new ExplorerManager();
-    
-    // TODO Add Property Change Listener
-    private static String dbConnectionString = null;
+  private static final long serialVersionUID = 1L;
+  private static ExplorerManager em = new ExplorerManager();
 
-    public EmployeeViewerTopComponent() {
-        initComponents();
-        setName(Bundle.CTL_EmployeeViewerTopComponent());
-        setToolTipText(Bundle.HINT_EmployeeViewerTopComponent());
+  // TODO Add Property Change Listener
+  private static String dbConnectionString = null;
 
-        dbConnectionString = NbPreferences.forModule(EmployeeViewerTopComponent.class).get("datamodel", "jmbde_derby_PU"); //NOI18N
-        
-        BeanTreeView beanTreeView = new BeanTreeView();
-        add(beanTreeView, BorderLayout.CENTER);
-        refreshNode();
-        associateLookup(ExplorerUtils.createLookup(em, getActionMap()));
+  public EmployeeViewerTopComponent() {
+    initComponents();
+    setName(Bundle.CTL_EmployeeViewerTopComponent());
+    setToolTipText(Bundle.HINT_EmployeeViewerTopComponent());
+
+    dbConnectionString =
+        NbPreferences.forModule(EmployeeViewerTopComponent.class)
+            .get("datamodel", "jmbde_derby_PU"); // NOI18N
+
+    BeanTreeView beanTreeView = new BeanTreeView();
+    add(beanTreeView, BorderLayout.CENTER);
+    refreshNode();
+    associateLookup(ExplorerUtils.createLookup(em, getActionMap()));
+  }
+
+  public static void refreshNode() {
+    EntityManagerFactory factory;
+    try {
+      factory = Persistence.createEntityManagerFactory(dbConnectionString);
+      EntityManager entityManager = factory.createEntityManager();
+      Query query = entityManager.createNamedQuery(
+          "AddressSetEmployee.findAll"); // NOI18N
+      List<AddressSetEmployee> resultList = query.getResultList();
+      em.setRootContext(new EmployeeRootNode(
+          Children.create(new EmployeeChildFactory(resultList), true)));
+    } catch (PersistenceException pe) {
+      // TODO Handle with Exception and Dialog!
+      System.err.println("Connection to " + dbConnectionString + " not open!");
+      pe.printStackTrace();
     }
-    
-      public static void refreshNode() {
-        EntityManagerFactory factory;
-        try {
-            factory = Persistence.createEntityManagerFactory(dbConnectionString);
-            EntityManager entityManager = factory.createEntityManager();
-            Query query = entityManager.createNamedQuery("AddressSetEmployee.findAll"); //NOI18N
-            List<AddressSetEmployee> resultList = query.getResultList();
-            em.setRootContext(new EmployeeRootNode(Children.create(new EmployeeChildFactory(resultList), true)));
-        } catch(PersistenceException pe) {
-            // TODO Handle with Exception and Dialog!
-            System.err.println("Connection to " + dbConnectionString + " not open!");
-            pe.printStackTrace();
-        }
-    }
+  }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+  /**
+   * This method is called from within the constructor to initialize the form.
+   * WARNING: Do NOT modify this code. The content of this method is always
+   * regenerated by the Form Editor.
+   */
+  // <editor-fold defaultstate="collapsed" desc="Generated
+  // Code">//GEN-BEGIN:initComponents
+  private void initComponents() {
 
-        setLayout(new java.awt.BorderLayout());
-    }// </editor-fold>//GEN-END:initComponents
+    setLayout(new java.awt.BorderLayout());
+  } // </editor-fold>//GEN-END:initComponents
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
-    @Override
-    public void componentOpened() {
-        // TODO add custom code on component opening
-    }
+  // Variables declaration - do not modify//GEN-BEGIN:variables
+  // End of variables declaration//GEN-END:variables
+  @Override
+  public void componentOpened() {
+    // TODO add custom code on component opening
+  }
 
-    @Override
-    public void componentClosed() {
-        // TODO add custom code on component closing
-    }
+  @Override
+  public void componentClosed() {
+    // TODO add custom code on component closing
+  }
 
-    void writeProperties(java.util.Properties p) {
-        // better to version settings since initial version as advocated at
-        // http://wiki.apidesign.org/wiki/PropertyFiles
-        p.setProperty("version", "1.0");
-        // TODO store your settings
-    }
+  void writeProperties(java.util.Properties p) {
+    // better to version settings since initial version as advocated at
+    // http://wiki.apidesign.org/wiki/PropertyFiles
+    p.setProperty("version", "1.0");
+    // TODO store your settings
+  }
 
-    void readProperties(java.util.Properties p) {
-        String version = p.getProperty("version");
-        // TODO read your settings according to their version
-    }
+  void readProperties(java.util.Properties p) {
+    String version = p.getProperty("version");
+    // TODO read your settings according to their version
+  }
 
-    /**
-     * Get the Explorer Manager.
-     * @return em
-     * @see ExporerManager
-     */
-    @Override
-    public ExplorerManager getExplorerManager() {
-        return em;
-    }
+  /**
+   * Get the Explorer Manager.
+   * @return em
+   * @see ExporerManager
+   */
+  @Override
+  public ExplorerManager getExplorerManager() {
+    return em;
+  }
 }

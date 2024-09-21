@@ -42,8 +42,8 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * The Account Entity
- * 
- * 
+ *
+ *
  * @author Jürgen Mülbert
  * @version 0.4
  *
@@ -53,132 +53,115 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "AccountSet")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "AccountSet.findAll", query = "SELECT a FROM AccountSet a"),
-    @NamedQuery(name = "AccountSet.findById", query = "SELECT a FROM AccountSet a WHERE a.id = :id"),
-    @NamedQuery(name = "AccountSet.findByName", query = "SELECT a FROM AccountSet a WHERE a.name = :name"),
-    @NamedQuery(name = "AccountSet.findByPassword", query = "SELECT a FROM AccountSet a WHERE a.password = :password"),
-    @NamedQuery(name = "AccountSet.findByLastUpdate", query = "SELECT a FROM AccountSet a WHERE a.lastUpdate = :lastUpdate"),
-    @NamedQuery(name = "AccountSet.findByUserName", query = "SELECT a FROM AccountSet a WHERE a.userName = :userName")})
+  @NamedQuery(name = "AccountSet.findAll", query = "SELECT a FROM AccountSet a")
+  ,
+      @NamedQuery(name = "AccountSet.findById",
+                  query = "SELECT a FROM AccountSet a WHERE a.id = :id"),
+      @NamedQuery(name = "AccountSet.findByName",
+                  query = "SELECT a FROM AccountSet a WHERE a.name = :name"),
+      @NamedQuery(
+          name = "AccountSet.findByPassword",
+          query = "SELECT a FROM AccountSet a WHERE a.password = :password"),
+      @NamedQuery(
+          name = "AccountSet.findByLastUpdate",
+          query =
+              "SELECT a FROM AccountSet a WHERE a.lastUpdate = :lastUpdate"),
+      @NamedQuery(name = "AccountSet.findByUserName",
+                  query =
+                      "SELECT a FROM AccountSet a WHERE a.userName = :userName")
+})
 public class AccountSet implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Id")
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "Name")
-    private String name;
-    @Column(name = "Password")
-    private String password;
-    @Column(name = "LastUpdate")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastUpdate;
-    @Basic(optional = false)
-    @Column(name = "UserName")
-    private String userName;
-    @JoinTable(name = "AccountSystemData", joinColumns = {
-        @JoinColumn(name = "Account_Id", referencedColumnName = "Id")}, inverseJoinColumns = {
-        @JoinColumn(name = "SystemData_Id", referencedColumnName = "Id")})
-    @ManyToMany
-    private Collection<SystemDataSet> systemDataSetCollection;
-    @JoinColumn(name = "Employee_Id", referencedColumnName = "Id")
-    @ManyToOne(optional = false)
-    private AddressSetEmployee employeeId;
+  private static final long serialVersionUID = 1L;
+  @Id @Basic(optional = false) @Column(name = "Id") private Integer id;
+  @Basic(optional = false) @Column(name = "Name") private String name;
+  @Column(name = "Password") private String password;
+  @Column(name = "LastUpdate")
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date lastUpdate;
+  @Basic(optional = false) @Column(name = "UserName") private String userName;
+  @JoinTable(
+      name = "AccountSystemData",
+      joinColumns =
+      { @JoinColumn(name = "Account_Id", referencedColumnName = "Id") },
+      inverseJoinColumns =
+      { @JoinColumn(name = "SystemData_Id", referencedColumnName = "Id") })
+  @ManyToMany
+  private Collection<SystemDataSet> systemDataSetCollection;
+  @JoinColumn(name = "Employee_Id", referencedColumnName = "Id")
+  @ManyToOne(optional = false)
+  private AddressSetEmployee employeeId;
 
-    public AccountSet() {
-    }
+  public AccountSet() {}
 
-    public AccountSet(Integer id) {
-        this.id = id;
-    }
+  public AccountSet(Integer id) { this.id = id; }
 
-    public AccountSet(Integer id, String name, String userName) {
-        this.id = id;
-        this.name = name;
-        this.userName = userName;
-    }
+  public AccountSet(Integer id, String name, String userName) {
+    this.id = id;
+    this.name = name;
+    this.userName = userName;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setId(Integer id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) { this.name = name; }
 
-    public String getPassword() {
-        return password;
-    }
+  public String getPassword() { return password; }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public void setPassword(String password) { this.password = password; }
 
-    public Date getLastUpdate() {
-        return lastUpdate;
-    }
+  public Date getLastUpdate() { return lastUpdate; }
 
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
+  public void setLastUpdate(Date lastUpdate) { this.lastUpdate = lastUpdate; }
 
-    public String getUserName() {
-        return userName;
-    }
+  public String getUserName() { return userName; }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+  public void setUserName(String userName) { this.userName = userName; }
 
-    @XmlTransient
-    public Collection<SystemDataSet> getSystemDataSetCollection() {
-        return systemDataSetCollection;
-    }
+  @XmlTransient
+  public Collection<SystemDataSet> getSystemDataSetCollection() {
+    return systemDataSetCollection;
+  }
 
-    public void setSystemDataSetCollection(Collection<SystemDataSet> systemDataSetCollection) {
-        this.systemDataSetCollection = systemDataSetCollection;
-    }
+  public void setSystemDataSetCollection(
+      Collection<SystemDataSet> systemDataSetCollection) {
+    this.systemDataSetCollection = systemDataSetCollection;
+  }
 
-    public AddressSetEmployee getEmployeeId() {
-        return employeeId;
-    }
+  public AddressSetEmployee getEmployeeId() { return employeeId; }
 
-    public void setEmployeeId(AddressSetEmployee employeeId) {
-        this.employeeId = employeeId;
-    }
+  public void setEmployeeId(AddressSetEmployee employeeId) {
+    this.employeeId = employeeId;
+  }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+  @Override
+  public int hashCode() {
+    int hash = 0;
+    hash += (id != null ? id.hashCode() : 0);
+    return hash;
+  }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof AccountSet)) {
-            return false;
-        }
-        AccountSet other = (AccountSet) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not
+    // set
+    if (!(object instanceof AccountSet)) {
+      return false;
     }
+    AccountSet other = (AccountSet)object;
+    if ((this.id == null && other.id != null) ||
+        (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
+  }
 
-    @Override
-    public String toString() {
-        return "de.jmuelbert.jmbde.datamodel.AccountSet[ id=" + id + " ]";
-    }
-    
+  @Override
+  public String toString() {
+    return "de.jmuelbert.jmbde.datamodel.AccountSet[ id=" + id + " ]";
+  }
 }

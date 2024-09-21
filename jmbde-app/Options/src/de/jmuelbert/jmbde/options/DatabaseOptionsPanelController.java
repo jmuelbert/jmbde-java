@@ -13,83 +13,82 @@ import org.netbeans.spi.options.OptionsPanelController;
 import org.openide.util.HelpCtx;
 import org.openide.util.Lookup;
 
-@OptionsPanelController.SubRegistration(
-        displayName = "#AdvancedOption_DisplayName_Database",
-        keywords = "#AdvancedOption_Keywords_Database",
-        keywordsCategory = "Advanced/Database"
-)
-@org.openide.util.NbBundle.Messages({"AdvancedOption_DisplayName_Database=Database", "AdvancedOption_Keywords_Database=Database"})
-public final class DatabaseOptionsPanelController extends OptionsPanelController {
+@OptionsPanelController.
+SubRegistration(displayName = "#AdvancedOption_DisplayName_Database",
+                keywords = "#AdvancedOption_Keywords_Database",
+                keywordsCategory = "Advanced/Database")
+@org.openide.util.NbBundle.
+Messages({"AdvancedOption_DisplayName_Database=Database",
+          "AdvancedOption_Keywords_Database=Database"})
+public final class DatabaseOptionsPanelController
+    extends OptionsPanelController {
 
-    private DatabasePanel panel;
-    private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
-    private boolean changed;
+  private DatabasePanel panel;
+  private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
+  private boolean changed;
 
-    @Override
-    public void update() {
-        getPanel().load();
+  @Override
+  public void update() {
+    getPanel().load();
+    changed = false;
+  }
+
+  @Override
+  public void applyChanges() {
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override
+      public void run() {
+        getPanel().store();
         changed = false;
+      }
+    });
+  }
+
+  @Override
+  public void cancel() {
+    // need not do anything special, if no changes have been persisted yet
+  }
+
+  @Override
+  public boolean isValid() {
+    return getPanel().valid();
+  }
+
+  @Override
+  public boolean isChanged() {
+    return changed;
+  }
+
+  @Override
+  public HelpCtx getHelpCtx() {
+    return null; // new HelpCtx("...ID") if you have a help set
+  }
+
+  public JComponent getComponent(Lookup masterLookup) { return getPanel(); }
+
+  @Override
+  public void addPropertyChangeListener(PropertyChangeListener l) {
+    pcs.addPropertyChangeListener(l);
+  }
+
+  @Override
+  public void removePropertyChangeListener(PropertyChangeListener l) {
+    pcs.removePropertyChangeListener(l);
+  }
+
+  private DatabasePanel getPanel() {
+    if (panel == null) {
+      panel = new DatabasePanel(this);
     }
 
-    @Override
-    public void applyChanges() {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                getPanel().store();
-                changed = false;
-            }
-        });
-    }
+    return panel;
+  }
 
-    @Override
-    public void cancel() {
-        // need not do anything special, if no changes have been persisted yet
+  void changed() {
+    if (!changed) {
+      changed = true;
+      pcs.firePropertyChange(OptionsPanelController.PROP_CHANGED, false, true);
     }
-
-    @Override
-    public boolean isValid() {
-        return getPanel().valid();
-    }
-
-    @Override
-    public boolean isChanged() {
-        return changed;
-    }
-
-    @Override
-    public HelpCtx getHelpCtx() {
-        return null; // new HelpCtx("...ID") if you have a help set
-    }
-
-    public JComponent getComponent(Lookup masterLookup) {
-        return getPanel();
-    }
-
-    @Override
-    public void addPropertyChangeListener(PropertyChangeListener l) {
-        pcs.addPropertyChangeListener(l);
-    }
-
-    @Override
-    public void removePropertyChangeListener(PropertyChangeListener l) {
-        pcs.removePropertyChangeListener(l);
-    }
-
-    private DatabasePanel getPanel() {
-        if (panel == null) {
-            panel = new DatabasePanel(this);
-        }
-        
-        return panel;
-    }
-
-    void changed() {
-        if (!changed) {
-            changed = true;
-            pcs.firePropertyChange(OptionsPanelController.PROP_CHANGED, false, true);
-        }
-        pcs.firePropertyChange(OptionsPanelController.PROP_VALID, null, null);
-    }
-
+    pcs.firePropertyChange(OptionsPanelController.PROP_VALID, null, null);
+  }
 }

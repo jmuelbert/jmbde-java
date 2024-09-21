@@ -39,169 +39,140 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * The DeviceSet Entity
- * 
- * 
+ *
+ *
  * @author Jürgen Mülbert
  * @version 0.4
  *
  */
 
-
 @Entity
 @Table(name = "DeviceSet")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "DeviceSet.findAll", query = "SELECT d FROM DeviceSet d"),
-    @NamedQuery(name = "DeviceSet.findById", query = "SELECT d FROM DeviceSet d WHERE d.id = :id"),
-    @NamedQuery(name = "DeviceSet.findByName", query = "SELECT d FROM DeviceSet d WHERE d.name = :name"),
-    @NamedQuery(name = "DeviceSet.findBySerialNumber", query = "SELECT d FROM DeviceSet d WHERE d.serialNumber = :serialNumber"),
-    @NamedQuery(name = "DeviceSet.findBySince", query = "SELECT d FROM DeviceSet d WHERE d.since = :since"),
-    @NamedQuery(name = "DeviceSet.findByActive", query = "SELECT d FROM DeviceSet d WHERE d.active = :active"),
-    @NamedQuery(name = "DeviceSet.findByShouldReplace", query = "SELECT d FROM DeviceSet d WHERE d.shouldReplace = :shouldReplace"),
-    @NamedQuery(name = "DeviceSet.findByLastUpdate", query = "SELECT d FROM DeviceSet d WHERE d.lastUpdate = :lastUpdate")})
+  @NamedQuery(name = "DeviceSet.findAll", query = "SELECT d FROM DeviceSet d")
+  ,
+      @NamedQuery(name = "DeviceSet.findById",
+                  query = "SELECT d FROM DeviceSet d WHERE d.id = :id"),
+      @NamedQuery(name = "DeviceSet.findByName",
+                  query = "SELECT d FROM DeviceSet d WHERE d.name = :name"),
+      @NamedQuery(
+          name = "DeviceSet.findBySerialNumber",
+          query =
+              "SELECT d FROM DeviceSet d WHERE d.serialNumber = :serialNumber"),
+      @NamedQuery(name = "DeviceSet.findBySince",
+                  query = "SELECT d FROM DeviceSet d WHERE d.since = :since"),
+      @NamedQuery(name = "DeviceSet.findByActive",
+                  query = "SELECT d FROM DeviceSet d WHERE d.active = :active"),
+      @NamedQuery(name = "DeviceSet.findByShouldReplace",
+                  query = "SELECT d FROM DeviceSet d WHERE d.shouldReplace = " +
+                          ":shouldReplace"),
+      @NamedQuery(
+          name = "DeviceSet.findByLastUpdate",
+          query = "SELECT d FROM DeviceSet d WHERE d.lastUpdate = :lastUpdate")
+})
 public class DeviceSet implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Id")
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "Name")
-    private String name;
-    @Column(name = "SerialNumber")
-    private String serialNumber;
-    @Column(name = "Since")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date since;
-    @Column(name = "Active")
-    private Boolean active;
-    @Column(name = "ShouldReplace")
-    private Boolean shouldReplace;
-    @Column(name = "LastUpdate")
-    private Boolean lastUpdate;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "deviceSet")
-    private DeviceSetPrinter deviceSetPrinter;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "deviceSet")
-    private DeviceSetComputer deviceSetComputer;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "deviceSet")
-    private DeviceSetPhone deviceSetPhone;
+  private static final long serialVersionUID = 1L;
+  @Id @Basic(optional = false) @Column(name = "Id") private Integer id;
+  @Basic(optional = false) @Column(name = "Name") private String name;
+  @Column(name = "SerialNumber") private String serialNumber;
+  @Column(name = "Since") @Temporal(TemporalType.TIMESTAMP) private Date since;
+  @Column(name = "Active") private Boolean active;
+  @Column(name = "ShouldReplace") private Boolean shouldReplace;
+  @Column(name = "LastUpdate") private Boolean lastUpdate;
+  @OneToOne(cascade = CascadeType.ALL, mappedBy = "deviceSet")
+  private DeviceSetPrinter deviceSetPrinter;
+  @OneToOne(cascade = CascadeType.ALL, mappedBy = "deviceSet")
+  private DeviceSetComputer deviceSetComputer;
+  @OneToOne(cascade = CascadeType.ALL, mappedBy = "deviceSet")
+  private DeviceSetPhone deviceSetPhone;
 
-    public DeviceSet() {
-    }
+  public DeviceSet() {}
 
-    public DeviceSet(Integer id) {
-        this.id = id;
-    }
+  public DeviceSet(Integer id) { this.id = id; }
 
-    public DeviceSet(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+  public DeviceSet(Integer id, String name) {
+    this.id = id;
+    this.name = name;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setId(Integer id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) { this.name = name; }
 
-    public String getSerialNumber() {
-        return serialNumber;
-    }
+  public String getSerialNumber() { return serialNumber; }
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
+  public void setSerialNumber(String serialNumber) {
+    this.serialNumber = serialNumber;
+  }
 
-    public Date getSince() {
-        return since;
-    }
+  public Date getSince() { return since; }
 
-    public void setSince(Date since) {
-        this.since = since;
-    }
+  public void setSince(Date since) { this.since = since; }
 
-    public Boolean getActive() {
-        return active;
-    }
+  public Boolean getActive() { return active; }
 
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
+  public void setActive(Boolean active) { this.active = active; }
 
-    public Boolean getShouldReplace() {
-        return shouldReplace;
-    }
+  public Boolean getShouldReplace() { return shouldReplace; }
 
-    public void setShouldReplace(Boolean shouldReplace) {
-        this.shouldReplace = shouldReplace;
-    }
+  public void setShouldReplace(Boolean shouldReplace) {
+    this.shouldReplace = shouldReplace;
+  }
 
-    public Boolean getLastUpdate() {
-        return lastUpdate;
-    }
+  public Boolean getLastUpdate() { return lastUpdate; }
 
-    public void setLastUpdate(Boolean lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
+  public void setLastUpdate(Boolean lastUpdate) {
+    this.lastUpdate = lastUpdate;
+  }
 
-    public DeviceSetPrinter getDeviceSetPrinter() {
-        return deviceSetPrinter;
-    }
+  public DeviceSetPrinter getDeviceSetPrinter() { return deviceSetPrinter; }
 
-    public void setDeviceSetPrinter(DeviceSetPrinter deviceSetPrinter) {
-        this.deviceSetPrinter = deviceSetPrinter;
-    }
+  public void setDeviceSetPrinter(DeviceSetPrinter deviceSetPrinter) {
+    this.deviceSetPrinter = deviceSetPrinter;
+  }
 
-    public DeviceSetComputer getDeviceSetComputer() {
-        return deviceSetComputer;
-    }
+  public DeviceSetComputer getDeviceSetComputer() { return deviceSetComputer; }
 
-    public void setDeviceSetComputer(DeviceSetComputer deviceSetComputer) {
-        this.deviceSetComputer = deviceSetComputer;
-    }
+  public void setDeviceSetComputer(DeviceSetComputer deviceSetComputer) {
+    this.deviceSetComputer = deviceSetComputer;
+  }
 
-    public DeviceSetPhone getDeviceSetPhone() {
-        return deviceSetPhone;
-    }
+  public DeviceSetPhone getDeviceSetPhone() { return deviceSetPhone; }
 
-    public void setDeviceSetPhone(DeviceSetPhone deviceSetPhone) {
-        this.deviceSetPhone = deviceSetPhone;
-    }
+  public void setDeviceSetPhone(DeviceSetPhone deviceSetPhone) {
+    this.deviceSetPhone = deviceSetPhone;
+  }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+  @Override
+  public int hashCode() {
+    int hash = 0;
+    hash += (id != null ? id.hashCode() : 0);
+    return hash;
+  }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof DeviceSet)) {
-            return false;
-        }
-        DeviceSet other = (DeviceSet) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not
+    // set
+    if (!(object instanceof DeviceSet)) {
+      return false;
     }
+    DeviceSet other = (DeviceSet)object;
+    if ((this.id == null && other.id != null) ||
+        (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
+  }
 
-    @Override
-    public String toString() {
-        return "de.jmuelbert.jmbde.datamodel.DeviceSet[ id=" + id + " ]";
-    }
-    
+  @Override
+  public String toString() {
+    return "de.jmuelbert.jmbde.datamodel.DeviceSet[ id=" + id + " ]";
+  }
 }

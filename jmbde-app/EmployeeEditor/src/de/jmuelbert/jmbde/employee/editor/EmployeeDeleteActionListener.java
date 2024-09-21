@@ -21,7 +21,6 @@
 
 package de.jmuelbert.jmbde.employee.editor;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import org.openide.awt.ActionID;
@@ -31,9 +30,9 @@ import org.openide.util.NbBundle.Messages;
 import org.openide.windows.WindowManager;
 /**
  * A Entry for Delete Employee-Data
- * 
+ *
  * Create an Action Listener
- * 
+ *
  * @author Jürgen Mülbert
  * @version 1.0
  *
@@ -43,20 +42,19 @@ import org.openide.windows.WindowManager;
  * @see org.openide.awt.ActionRegistration
  * @see org.openide.util.NbBundle.Messages
  */
-@ActionID(
-        category = "File",
-        id = "de.jmuelbert.jmbde.employee.editor.EmployeeDeleteActionListener"
-)
-@ActionRegistration(
-        displayName = "#CTL_EmployeeDeleteActionListener"
-)
+@ActionID(category = "File",
+          id =
+              "de.jmuelbert.jmbde.employee.editor.EmployeeDeleteActionListener")
+@ActionRegistration(displayName = "#CTL_EmployeeDeleteActionListener")
 @ActionReference(path = "Menu/File", position = 1300)
 @Messages("CTL_EmployeeDeleteActionListener=Delete")
 public class EmployeeDeleteActionListener implements ActionListener {
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        EmployeeEditorTopComponent tc = (EmployeeEditorTopComponent) WindowManager.getDefault().findTopComponent("EmployeeEditorTopComponent");
-        tc.deleteEntry();
-    }  
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    EmployeeEditorTopComponent tc =
+        (EmployeeEditorTopComponent)WindowManager.getDefault().findTopComponent(
+            "EmployeeEditorTopComponent");
+    tc.deleteEntry();
+  }
 }

@@ -3,4 +3,3 @@ AutoUpdate-Show-In-Client: true
 OpenIDE-Module: de.jmuelbert.jmbde.datamodel
 OpenIDE-Module-Localizing-Bundle: de/jmuelbert/jmbde/datamodel/Bundle.properties
 OpenIDE-Module-Specification-Version: 1.0
-

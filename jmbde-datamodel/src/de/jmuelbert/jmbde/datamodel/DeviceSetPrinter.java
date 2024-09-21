@@ -1,4 +1,4 @@
- /**
+/**
  * JMBDE - Datamodel
  *
  *
@@ -37,213 +37,184 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
- 
+
 /**
  * The DeviceSetPrinter Entity
- * 
- * 
+ *
+ *
  * @author Jürgen Mülbert
  * @version 0.4
  *
  * @see DeviceSet
  */
 
-
 @Entity
 @Table(name = "DeviceSet_Printer")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "DeviceSetPrinter.findAll", query = "SELECT d FROM DeviceSetPrinter d"),
-    @NamedQuery(name = "DeviceSetPrinter.findByPaperSizeMax", query = "SELECT d FROM DeviceSetPrinter d WHERE d.paperSizeMax = :paperSizeMax"),
-    @NamedQuery(name = "DeviceSetPrinter.findByColor", query = "SELECT d FROM DeviceSetPrinter d WHERE d.color = :color"),
-    @NamedQuery(name = "DeviceSetPrinter.findByNumber", query = "SELECT d FROM DeviceSetPrinter d WHERE d.number = :number"),
-    @NamedQuery(name = "DeviceSetPrinter.findByPin", query = "SELECT d FROM DeviceSetPrinter d WHERE d.pin = :pin"),
-    @NamedQuery(name = "DeviceSetPrinter.findByNetwork", query = "SELECT d FROM DeviceSetPrinter d WHERE d.network = :network"),
-    @NamedQuery(name = "DeviceSetPrinter.findByIPAddress", query = "SELECT d FROM DeviceSetPrinter d WHERE d.iPAddress = :iPAddress"),
-    @NamedQuery(name = "DeviceSetPrinter.findById", query = "SELECT d FROM DeviceSetPrinter d WHERE d.id = :id")})
+  @NamedQuery(name = "DeviceSetPrinter.findAll",
+              query = "SELECT d FROM DeviceSetPrinter d")
+  ,
+      @NamedQuery(name = "DeviceSetPrinter.findByPaperSizeMax",
+                  query = "SELECT d FROM DeviceSetPrinter d WHERE " +
+                          "d.paperSizeMax = :paperSizeMax"),
+      @NamedQuery(
+          name = "DeviceSetPrinter.findByColor",
+          query = "SELECT d FROM DeviceSetPrinter d WHERE d.color = :color"),
+      @NamedQuery(
+          name = "DeviceSetPrinter.findByNumber",
+          query = "SELECT d FROM DeviceSetPrinter d WHERE d.number = :number"),
+      @NamedQuery(name = "DeviceSetPrinter.findByPin",
+                  query =
+                      "SELECT d FROM DeviceSetPrinter d WHERE d.pin = :pin"),
+      @NamedQuery(
+          name = "DeviceSetPrinter.findByNetwork",
+          query =
+              "SELECT d FROM DeviceSetPrinter d WHERE d.network = :network"),
+      @NamedQuery(
+          name = "DeviceSetPrinter.findByIPAddress",
+          query =
+              "SELECT d FROM DeviceSetPrinter d WHERE d.iPAddress = :iPAddress")
+      ,
+      @NamedQuery(name = "DeviceSetPrinter.findById",
+                  query = "SELECT d FROM DeviceSetPrinter d WHERE d.id = :id")
+})
 public class DeviceSetPrinter implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Column(name = "PaperSizeMax")
-    private String paperSizeMax;
-    @Column(name = "Color")
-    private Boolean color;
-    @Column(name = "Number")
-    private String number;
-    @Column(name = "Pin")
-    private String pin;
-    @Column(name = "Network")
-    private String network;
-    @Column(name = "IPAddress")
-    private String iPAddress;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Id")
-    private Integer id;
-    @OneToMany(mappedBy = "printerId")
-    private Collection<InventorySet> inventorySetCollection;
-    @JoinColumn(name = "Employee_Id", referencedColumnName = "Id")
-    @ManyToOne
-    private AddressSetEmployee employeeId;
-    @JoinColumn(name = "Manufacturer_Id", referencedColumnName = "Id")
-    @ManyToOne
-    private AddressSetManufacturer manufacturerId;
-    @JoinColumn(name = "Department_Id", referencedColumnName = "Id")
-    @ManyToOne
-    private DepartmentSet departmentId;
-    @JoinColumn(name = "Id", referencedColumnName = "Id", insertable = false, updatable = false)
-    @OneToOne(optional = false)
-    private DeviceSet deviceSet;
-    @JoinColumn(name = "DeviceType_Id", referencedColumnName = "Id")
-    @ManyToOne
-    private DeviceTypeSet deviceTypeId;
-    @OneToMany(mappedBy = "printerId")
-    private Collection<PlaceSet> placeSetCollection;
+  private static final long serialVersionUID = 1L;
+  @Column(name = "PaperSizeMax") private String paperSizeMax;
+  @Column(name = "Color") private Boolean color;
+  @Column(name = "Number") private String number;
+  @Column(name = "Pin") private String pin;
+  @Column(name = "Network") private String network;
+  @Column(name = "IPAddress") private String iPAddress;
+  @Id @Basic(optional = false) @Column(name = "Id") private Integer id;
+  @OneToMany(mappedBy = "printerId")
+  private Collection<InventorySet> inventorySetCollection;
+  @JoinColumn(name = "Employee_Id", referencedColumnName = "Id")
+  @ManyToOne
+  private AddressSetEmployee employeeId;
+  @JoinColumn(name = "Manufacturer_Id", referencedColumnName = "Id")
+  @ManyToOne
+  private AddressSetManufacturer manufacturerId;
+  @JoinColumn(name = "Department_Id", referencedColumnName = "Id")
+  @ManyToOne
+  private DepartmentSet departmentId;
+  @JoinColumn(name = "Id", referencedColumnName = "Id", insertable = false,
+              updatable = false)
+  @OneToOne(optional = false)
+  private DeviceSet deviceSet;
+  @JoinColumn(name = "DeviceType_Id", referencedColumnName = "Id")
+  @ManyToOne
+  private DeviceTypeSet deviceTypeId;
+  @OneToMany(mappedBy = "printerId")
+  private Collection<PlaceSet> placeSetCollection;
 
-    public DeviceSetPrinter() {
-    }
+  public DeviceSetPrinter() {}
 
-    public DeviceSetPrinter(Integer id) {
-        this.id = id;
-    }
+  public DeviceSetPrinter(Integer id) { this.id = id; }
 
-    public String getPaperSizeMax() {
-        return paperSizeMax;
-    }
+  public String getPaperSizeMax() { return paperSizeMax; }
 
-    public void setPaperSizeMax(String paperSizeMax) {
-        this.paperSizeMax = paperSizeMax;
-    }
+  public void setPaperSizeMax(String paperSizeMax) {
+    this.paperSizeMax = paperSizeMax;
+  }
 
-    public Boolean getColor() {
-        return color;
-    }
+  public Boolean getColor() { return color; }
 
-    public void setColor(Boolean color) {
-        this.color = color;
-    }
+  public void setColor(Boolean color) { this.color = color; }
 
-    public String getNumber() {
-        return number;
-    }
+  public String getNumber() { return number; }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
+  public void setNumber(String number) { this.number = number; }
 
-    public String getPin() {
-        return pin;
-    }
+  public String getPin() { return pin; }
 
-    public void setPin(String pin) {
-        this.pin = pin;
-    }
+  public void setPin(String pin) { this.pin = pin; }
 
-    public String getNetwork() {
-        return network;
-    }
+  public String getNetwork() { return network; }
 
-    public void setNetwork(String network) {
-        this.network = network;
-    }
+  public void setNetwork(String network) { this.network = network; }
 
-    public String getIPAddress() {
-        return iPAddress;
-    }
+  public String getIPAddress() { return iPAddress; }
 
-    public void setIPAddress(String iPAddress) {
-        this.iPAddress = iPAddress;
-    }
+  public void setIPAddress(String iPAddress) { this.iPAddress = iPAddress; }
 
-    public Integer getId() {
-        return id;
-    }
+  public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setId(Integer id) { this.id = id; }
 
-    @XmlTransient
-    public Collection<InventorySet> getInventorySetCollection() {
-        return inventorySetCollection;
-    }
+  @XmlTransient
+  public Collection<InventorySet> getInventorySetCollection() {
+    return inventorySetCollection;
+  }
 
-    public void setInventorySetCollection(Collection<InventorySet> inventorySetCollection) {
-        this.inventorySetCollection = inventorySetCollection;
-    }
+  public void
+  setInventorySetCollection(Collection<InventorySet> inventorySetCollection) {
+    this.inventorySetCollection = inventorySetCollection;
+  }
 
-    public AddressSetEmployee getEmployeeId() {
-        return employeeId;
-    }
+  public AddressSetEmployee getEmployeeId() { return employeeId; }
 
-    public void setEmployeeId(AddressSetEmployee employeeId) {
-        this.employeeId = employeeId;
-    }
+  public void setEmployeeId(AddressSetEmployee employeeId) {
+    this.employeeId = employeeId;
+  }
 
-    public AddressSetManufacturer getManufacturerId() {
-        return manufacturerId;
-    }
+  public AddressSetManufacturer getManufacturerId() { return manufacturerId; }
 
-    public void setManufacturerId(AddressSetManufacturer manufacturerId) {
-        this.manufacturerId = manufacturerId;
-    }
+  public void setManufacturerId(AddressSetManufacturer manufacturerId) {
+    this.manufacturerId = manufacturerId;
+  }
 
-    public DepartmentSet getDepartmentId() {
-        return departmentId;
-    }
+  public DepartmentSet getDepartmentId() { return departmentId; }
 
-    public void setDepartmentId(DepartmentSet departmentId) {
-        this.departmentId = departmentId;
-    }
+  public void setDepartmentId(DepartmentSet departmentId) {
+    this.departmentId = departmentId;
+  }
 
-    public DeviceSet getDeviceSet() {
-        return deviceSet;
-    }
+  public DeviceSet getDeviceSet() { return deviceSet; }
 
-    public void setDeviceSet(DeviceSet deviceSet) {
-        this.deviceSet = deviceSet;
-    }
+  public void setDeviceSet(DeviceSet deviceSet) { this.deviceSet = deviceSet; }
 
-    public DeviceTypeSet getDeviceTypeId() {
-        return deviceTypeId;
-    }
+  public DeviceTypeSet getDeviceTypeId() { return deviceTypeId; }
 
-    public void setDeviceTypeId(DeviceTypeSet deviceTypeId) {
-        this.deviceTypeId = deviceTypeId;
-    }
+  public void setDeviceTypeId(DeviceTypeSet deviceTypeId) {
+    this.deviceTypeId = deviceTypeId;
+  }
 
-    @XmlTransient
-    public Collection<PlaceSet> getPlaceSetCollection() {
-        return placeSetCollection;
-    }
+  @XmlTransient
+  public Collection<PlaceSet> getPlaceSetCollection() {
+    return placeSetCollection;
+  }
 
-    public void setPlaceSetCollection(Collection<PlaceSet> placeSetCollection) {
-        this.placeSetCollection = placeSetCollection;
-    }
+  public void setPlaceSetCollection(Collection<PlaceSet> placeSetCollection) {
+    this.placeSetCollection = placeSetCollection;
+  }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+  @Override
+  public int hashCode() {
+    int hash = 0;
+    hash += (id != null ? id.hashCode() : 0);
+    return hash;
+  }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof DeviceSetPrinter)) {
-            return false;
-        }
-        DeviceSetPrinter other = (DeviceSetPrinter) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not
+    // set
+    if (!(object instanceof DeviceSetPrinter)) {
+      return false;
     }
+    DeviceSetPrinter other = (DeviceSetPrinter)object;
+    if ((this.id == null && other.id != null) ||
+        (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
+  }
 
-    @Override
-    public String toString() {
-        return "de.jmuelbert.jmbde.datamodel.DeviceSetPrinter[ id=" + id + " ]";
-    }
-    
+  @Override
+  public String toString() {
+    return "de.jmuelbert.jmbde.datamodel.DeviceSetPrinter[ id=" + id + " ]";
+  }
 }

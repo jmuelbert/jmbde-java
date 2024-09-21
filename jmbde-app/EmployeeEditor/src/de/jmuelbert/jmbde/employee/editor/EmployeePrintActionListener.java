@@ -23,7 +23,6 @@
 
 package de.jmuelbert.jmbde.employee.editor;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import org.openide.awt.ActionID;
@@ -34,9 +33,9 @@ import org.openide.util.NbBundle.Messages;
 import org.openide.windows.WindowManager;
 /**
  * A Entry for Print Employee-Data
- * 
+ *
  * Create an Action Listener
- * 
+ *
  * @author Jürgen Mülbert
  * @version 1.0
  *
@@ -46,17 +45,20 @@ import org.openide.windows.WindowManager;
  * @see org.openide.awt.ActionRegistration
  * @see org.openide.util.NbBundle.Messages
  */
-@ActionID(id="de.jmuelbert.jmbde.employee.editor.EmployeePrintActionListener", category="File")
-@ActionRegistration(displayName="#CTL_EmployeePrintActionListener")
+@ActionID(id = "de.jmuelbert.jmbde.employee.editor.EmployeePrintActionListener",
+          category = "File")
+@ActionRegistration(displayName = "#CTL_EmployeePrintActionListener")
 @ActionReferences({
-    @ActionReference(path="Menu/File", position=1200),
-    @ActionReference(path="Toolbars/File", position=20)
+  @ActionReference(path = "Menu/File", position = 1200)
+  , @ActionReference(path = "Toolbars/File", position = 20)
 })
 @Messages("CTL_EmployeePrintActionListener=Print")
 public class EmployeePrintActionListener implements ActionListener {
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        EmployeeEditorTopComponent tc = (EmployeeEditorTopComponent) WindowManager.getDefault().findTopComponent("EmployeeEditorTopComponent");
-    }  
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    EmployeeEditorTopComponent tc =
+        (EmployeeEditorTopComponent)WindowManager.getDefault().findTopComponent(
+            "EmployeeEditorTopComponent");
+  }
 }

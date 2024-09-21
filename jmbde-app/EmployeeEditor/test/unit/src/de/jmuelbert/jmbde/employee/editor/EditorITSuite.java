@@ -17,23 +17,20 @@ import org.junit.runners.Suite;
  * @author jurgenmulbert
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({de.jmuelbert.jmbde.employee.editor.EmployeeEditorTopComponentIT.class, de.jmuelbert.jmbde.employee.editor.EmployeeNewActionListenerIT.class})
+@Suite.SuiteClasses(
+    {de.jmuelbert.jmbde.employee.editor.EmployeeEditorTopComponentIT.class,
+     de.jmuelbert.jmbde.employee.editor.EmployeeNewActionListenerIT.class})
 public class EditorITSuite {
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+  @BeforeClass
+  public static void setUpClass() throws Exception {}
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+  @AfterClass
+  public static void tearDownClass() throws Exception {}
 
-    @Before
-    public void setUp() throws Exception {
-    }
+  @Before
+  public void setUp() throws Exception {}
 
-    @After
-    public void tearDown() throws Exception {
-    }
-    
+  @After
+  public void tearDown() throws Exception {}
 }

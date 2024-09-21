@@ -1,4 +1,4 @@
-  /**
+/**
  * JMBDE - Datamodel
  *
  *
@@ -41,8 +41,8 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * The ProcessorSet Entity
- * 
- * 
+ *
+ *
  * @author Jürgen Mülbert
  * @version 0.4
  *
@@ -52,116 +52,99 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "ProcessorSet")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ProcessorSet.findAll", query = "SELECT p FROM ProcessorSet p"),
-    @NamedQuery(name = "ProcessorSet.findById", query = "SELECT p FROM ProcessorSet p WHERE p.id = :id"),
-    @NamedQuery(name = "ProcessorSet.findByName", query = "SELECT p FROM ProcessorSet p WHERE p.name = :name"),
-    @NamedQuery(name = "ProcessorSet.findByCores", query = "SELECT p FROM ProcessorSet p WHERE p.cores = :cores"),
-    @NamedQuery(name = "ProcessorSet.findByTact", query = "SELECT p FROM ProcessorSet p WHERE p.tact = :tact"),
-    @NamedQuery(name = "ProcessorSet.findByLastUpdate", query = "SELECT p FROM ProcessorSet p WHERE p.lastUpdate = :lastUpdate")})
+  @NamedQuery(name = "ProcessorSet.findAll",
+              query = "SELECT p FROM ProcessorSet p")
+  ,
+      @NamedQuery(name = "ProcessorSet.findById",
+                  query = "SELECT p FROM ProcessorSet p WHERE p.id = :id"),
+      @NamedQuery(name = "ProcessorSet.findByName",
+                  query = "SELECT p FROM ProcessorSet p WHERE p.name = :name"),
+      @NamedQuery(name = "ProcessorSet.findByCores",
+                  query =
+                      "SELECT p FROM ProcessorSet p WHERE p.cores = :cores"),
+      @NamedQuery(name = "ProcessorSet.findByTact",
+                  query = "SELECT p FROM ProcessorSet p WHERE p.tact = :tact"),
+      @NamedQuery(
+          name = "ProcessorSet.findByLastUpdate",
+          query =
+              "SELECT p FROM ProcessorSet p WHERE p.lastUpdate = :lastUpdate")
+})
 public class ProcessorSet implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Id")
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "Name")
-    private String name;
-    @Column(name = "Cores")
-    private Short cores;
-    @Column(name = "Tact")
-    private Long tact;
-    @Column(name = "LastUpdate")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastUpdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "processorId")
-    private Collection<DeviceSetComputer> deviceSetComputerCollection;
+  private static final long serialVersionUID = 1L;
+  @Id @Basic(optional = false) @Column(name = "Id") private Integer id;
+  @Basic(optional = false) @Column(name = "Name") private String name;
+  @Column(name = "Cores") private Short cores;
+  @Column(name = "Tact") private Long tact;
+  @Column(name = "LastUpdate")
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date lastUpdate;
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "processorId")
+  private Collection<DeviceSetComputer> deviceSetComputerCollection;
 
-    public ProcessorSet() {
-    }
+  public ProcessorSet() {}
 
-    public ProcessorSet(Integer id) {
-        this.id = id;
-    }
+  public ProcessorSet(Integer id) { this.id = id; }
 
-    public ProcessorSet(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+  public ProcessorSet(Integer id, String name) {
+    this.id = id;
+    this.name = name;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setId(Integer id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) { this.name = name; }
 
-    public Short getCores() {
-        return cores;
-    }
+  public Short getCores() { return cores; }
 
-    public void setCores(Short cores) {
-        this.cores = cores;
-    }
+  public void setCores(Short cores) { this.cores = cores; }
 
-    public Long getTact() {
-        return tact;
-    }
+  public Long getTact() { return tact; }
 
-    public void setTact(Long tact) {
-        this.tact = tact;
-    }
+  public void setTact(Long tact) { this.tact = tact; }
 
-    public Date getLastUpdate() {
-        return lastUpdate;
-    }
+  public Date getLastUpdate() { return lastUpdate; }
 
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
+  public void setLastUpdate(Date lastUpdate) { this.lastUpdate = lastUpdate; }
 
-    @XmlTransient
-    public Collection<DeviceSetComputer> getDeviceSetComputerCollection() {
-        return deviceSetComputerCollection;
-    }
+  @XmlTransient
+  public Collection<DeviceSetComputer> getDeviceSetComputerCollection() {
+    return deviceSetComputerCollection;
+  }
 
-    public void setDeviceSetComputerCollection(Collection<DeviceSetComputer> deviceSetComputerCollection) {
-        this.deviceSetComputerCollection = deviceSetComputerCollection;
-    }
+  public void setDeviceSetComputerCollection(
+      Collection<DeviceSetComputer> deviceSetComputerCollection) {
+    this.deviceSetComputerCollection = deviceSetComputerCollection;
+  }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+  @Override
+  public int hashCode() {
+    int hash = 0;
+    hash += (id != null ? id.hashCode() : 0);
+    return hash;
+  }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ProcessorSet)) {
-            return false;
-        }
-        ProcessorSet other = (ProcessorSet) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not
+    // set
+    if (!(object instanceof ProcessorSet)) {
+      return false;
     }
+    ProcessorSet other = (ProcessorSet)object;
+    if ((this.id == null && other.id != null) ||
+        (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
+  }
 
-    @Override
-    public String toString() {
-        return "de.jmuelbert.jmbde.datamodel.ProcessorSet[ id=" + id + " ]";
-    }
-    
+  @Override
+  public String toString() {
+    return "de.jmuelbert.jmbde.datamodel.ProcessorSet[ id=" + id + " ]";
+  }
 }

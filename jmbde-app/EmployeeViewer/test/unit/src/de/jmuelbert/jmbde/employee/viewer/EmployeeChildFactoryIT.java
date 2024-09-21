@@ -21,6 +21,8 @@
 
 package de.jmuelbert.jmbde.employee.viewer;
 
+import static org.junit.Assert.*;
+
 import de.jmuelbert.jmbde.datamodel.AddressSetEmployee;
 import java.util.List;
 import org.junit.After;
@@ -28,7 +30,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.openide.nodes.Node;
 
 /**
@@ -38,59 +39,53 @@ import org.openide.nodes.Node;
  */
 public class EmployeeChildFactoryIT {
 
-    public EmployeeChildFactoryIT() {
-    }
+  public EmployeeChildFactoryIT() {}
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
+  @BeforeClass
+  public static void setUpClass() {}
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
+  @AfterClass
+  public static void tearDownClass() {}
 
-    @Before
-    public void setUp() {
-    }
+  @Before
+  public void setUp() {}
 
-    @After
-    public void tearDown() {
-    }
+  @After
+  public void tearDown() {}
 
-    @Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  @Test
+  public void testSomeMethod() {
+    // TODO review the generated test code and remove the default call to fail.
+    fail("The test case is a prototype.");
+  }
 
-    /**
-     * Test of createKeys method, of class EmployeeChildFactory.
-     */
-    @Test
-    public void testCreateKeys() {
-        System.out.println("createKeys");
-        List<AddressSetEmployee> list = null;
-        EmployeeChildFactory instance = new EmployeeChildFactory();
-        boolean expResult = false;
-        boolean result = instance.createKeys(list);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+  /**
+   * Test of createKeys method, of class EmployeeChildFactory.
+   */
+  @Test
+  public void testCreateKeys() {
+    System.out.println("createKeys");
+    List<AddressSetEmployee> list = null;
+    EmployeeChildFactory instance = new EmployeeChildFactory();
+    boolean expResult = false;
+    boolean result = instance.createKeys(list);
+    assertEquals(expResult, result);
+    // TODO review the generated test code and remove the default call to fail.
+    fail("The test case is a prototype.");
+  }
 
-    /**
-     * Test of createNodeForKey method, of class EmployeeChildFactory.
-     */
-    @Test
-    public void testCreateNodeForKey() {
-        System.out.println("createNodeForKey");
-        AddressSetEmployee e = null;
-        EmployeeChildFactory instance = new EmployeeChildFactory();
-        Node expResult = null;
-        Node result = instance.createNodeForKey(e);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+  /**
+   * Test of createNodeForKey method, of class EmployeeChildFactory.
+   */
+  @Test
+  public void testCreateNodeForKey() {
+    System.out.println("createNodeForKey");
+    AddressSetEmployee e = null;
+    EmployeeChildFactory instance = new EmployeeChildFactory();
+    Node expResult = null;
+    Node result = instance.createNodeForKey(e);
+    assertEquals(expResult, result);
+    // TODO review the generated test code and remove the default call to fail.
+    fail("The test case is a prototype.");
+  }
 }

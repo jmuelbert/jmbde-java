@@ -37,11 +37,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
- 
+
 /**
  * The DepartmentSet Entity
- * 
- * 
+ *
+ *
  * @author Jürgen Mülbert
  * @version 0.4
  *
@@ -51,138 +51,128 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "DepartmentSet")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "DepartmentSet.findAll", query = "SELECT d FROM DepartmentSet d"),
-    @NamedQuery(name = "DepartmentSet.findById", query = "SELECT d FROM DepartmentSet d WHERE d.id = :id"),
-    @NamedQuery(name = "DepartmentSet.findByName", query = "SELECT d FROM DepartmentSet d WHERE d.name = :name"),
-    @NamedQuery(name = "DepartmentSet.findByPriority", query = "SELECT d FROM DepartmentSet d WHERE d.priority = :priority"),
-    @NamedQuery(name = "DepartmentSet.findByLastUpdate", query = "SELECT d FROM DepartmentSet d WHERE d.lastUpdate = :lastUpdate")})
+  @NamedQuery(name = "DepartmentSet.findAll",
+              query = "SELECT d FROM DepartmentSet d")
+  ,
+      @NamedQuery(name = "DepartmentSet.findById",
+                  query = "SELECT d FROM DepartmentSet d WHERE d.id = :id"),
+      @NamedQuery(name = "DepartmentSet.findByName",
+                  query = "SELECT d FROM DepartmentSet d WHERE d.name = :name"),
+      @NamedQuery(
+          name = "DepartmentSet.findByPriority",
+          query = "SELECT d FROM DepartmentSet d WHERE d.priority = :priority"),
+      @NamedQuery(
+          name = "DepartmentSet.findByLastUpdate",
+          query =
+              "SELECT d FROM DepartmentSet d WHERE d.lastUpdate = :lastUpdate")
+})
 public class DepartmentSet implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Id")
-    private Integer id;
-    @Basic(optional = false)
-    @Column(name = "Name")
-    private String name;
-    @Column(name = "Priority")
-    private Short priority;
-    @Column(name = "LastUpdate")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastUpdate;
-    @OneToMany(mappedBy = "departmentId")
-    private Collection<AddressSetEmployee> addressSetEmployeeCollection;
-    @OneToMany(mappedBy = "departmentId")
-    private Collection<DeviceSetPrinter> deviceSetPrinterCollection;
-    @OneToMany(mappedBy = "departmentId")
-    private Collection<DeviceSetComputer> deviceSetComputerCollection;
-    @OneToMany(mappedBy = "departmentId")
-    private Collection<DeviceSetPhone> deviceSetPhoneCollection;
+  private static final long serialVersionUID = 1L;
+  @Id @Basic(optional = false) @Column(name = "Id") private Integer id;
+  @Basic(optional = false) @Column(name = "Name") private String name;
+  @Column(name = "Priority") private Short priority;
+  @Column(name = "LastUpdate")
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date lastUpdate;
+  @OneToMany(mappedBy = "departmentId")
+  private Collection<AddressSetEmployee> addressSetEmployeeCollection;
+  @OneToMany(mappedBy = "departmentId")
+  private Collection<DeviceSetPrinter> deviceSetPrinterCollection;
+  @OneToMany(mappedBy = "departmentId")
+  private Collection<DeviceSetComputer> deviceSetComputerCollection;
+  @OneToMany(mappedBy = "departmentId")
+  private Collection<DeviceSetPhone> deviceSetPhoneCollection;
 
-    public DepartmentSet() {
-    }
+  public DepartmentSet() {}
 
-    public DepartmentSet(Integer id) {
-        this.id = id;
-    }
+  public DepartmentSet(Integer id) { this.id = id; }
 
-    public DepartmentSet(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+  public DepartmentSet(Integer id, String name) {
+    this.id = id;
+    this.name = name;
+  }
 
-    public Integer getId() {
-        return id;
-    }
+  public Integer getId() { return id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public void setId(Integer id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) { this.name = name; }
 
-    public Short getPriority() {
-        return priority;
-    }
+  public Short getPriority() { return priority; }
 
-    public void setPriority(Short priority) {
-        this.priority = priority;
-    }
+  public void setPriority(Short priority) { this.priority = priority; }
 
-    public Date getLastUpdate() {
-        return lastUpdate;
-    }
+  public Date getLastUpdate() { return lastUpdate; }
 
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
+  public void setLastUpdate(Date lastUpdate) { this.lastUpdate = lastUpdate; }
 
-    @XmlTransient
-    public Collection<AddressSetEmployee> getAddressSetEmployeeCollection() {
-        return addressSetEmployeeCollection;
-    }
+  @XmlTransient
+  public Collection<AddressSetEmployee> getAddressSetEmployeeCollection() {
+    return addressSetEmployeeCollection;
+  }
 
-    public void setAddressSetEmployeeCollection(Collection<AddressSetEmployee> addressSetEmployeeCollection) {
-        this.addressSetEmployeeCollection = addressSetEmployeeCollection;
-    }
+  public void setAddressSetEmployeeCollection(
+      Collection<AddressSetEmployee> addressSetEmployeeCollection) {
+    this.addressSetEmployeeCollection = addressSetEmployeeCollection;
+  }
 
-    @XmlTransient
-    public Collection<DeviceSetPrinter> getDeviceSetPrinterCollection() {
-        return deviceSetPrinterCollection;
-    }
+  @XmlTransient
+  public Collection<DeviceSetPrinter> getDeviceSetPrinterCollection() {
+    return deviceSetPrinterCollection;
+  }
 
-    public void setDeviceSetPrinterCollection(Collection<DeviceSetPrinter> deviceSetPrinterCollection) {
-        this.deviceSetPrinterCollection = deviceSetPrinterCollection;
-    }
+  public void setDeviceSetPrinterCollection(
+      Collection<DeviceSetPrinter> deviceSetPrinterCollection) {
+    this.deviceSetPrinterCollection = deviceSetPrinterCollection;
+  }
 
-    @XmlTransient
-    public Collection<DeviceSetComputer> getDeviceSetComputerCollection() {
-        return deviceSetComputerCollection;
-    }
+  @XmlTransient
+  public Collection<DeviceSetComputer> getDeviceSetComputerCollection() {
+    return deviceSetComputerCollection;
+  }
 
-    public void setDeviceSetComputerCollection(Collection<DeviceSetComputer> deviceSetComputerCollection) {
-        this.deviceSetComputerCollection = deviceSetComputerCollection;
-    }
+  public void setDeviceSetComputerCollection(
+      Collection<DeviceSetComputer> deviceSetComputerCollection) {
+    this.deviceSetComputerCollection = deviceSetComputerCollection;
+  }
 
-    @XmlTransient
-    public Collection<DeviceSetPhone> getDeviceSetPhoneCollection() {
-        return deviceSetPhoneCollection;
-    }
+  @XmlTransient
+  public Collection<DeviceSetPhone> getDeviceSetPhoneCollection() {
+    return deviceSetPhoneCollection;
+  }
 
-    public void setDeviceSetPhoneCollection(Collection<DeviceSetPhone> deviceSetPhoneCollection) {
-        this.deviceSetPhoneCollection = deviceSetPhoneCollection;
-    }
+  public void setDeviceSetPhoneCollection(
+      Collection<DeviceSetPhone> deviceSetPhoneCollection) {
+    this.deviceSetPhoneCollection = deviceSetPhoneCollection;
+  }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
+  @Override
+  public int hashCode() {
+    int hash = 0;
+    hash += (id != null ? id.hashCode() : 0);
+    return hash;
+  }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof DepartmentSet)) {
-            return false;
-        }
-        DepartmentSet other = (DepartmentSet) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+  @Override
+  public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not
+    // set
+    if (!(object instanceof DepartmentSet)) {
+      return false;
     }
+    DepartmentSet other = (DepartmentSet)object;
+    if ((this.id == null && other.id != null) ||
+        (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
+  }
 
-    @Override
-    public String toString() {
-        return "de.jmuelbert.jmbde.datamodel.DepartmentSet[ id=" + id + " ]";
-    }
-    
+  @Override
+  public String toString() {
+    return "de.jmuelbert.jmbde.datamodel.DepartmentSet[ id=" + id + " ]";
+  }
 }

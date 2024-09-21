@@ -32,8 +32,8 @@ import org.openide.util.Exceptions;
 import org.openide.util.lookup.Lookups;
 
 /**
- * The Employee Viewer EmployeeChildFactory 
- * 
+ * The Employee Viewer EmployeeChildFactory
+ *
  * @author Jürgen Mülbert
  * @version 0.2
  *
@@ -48,58 +48,56 @@ import org.openide.util.lookup.Lookups;
  * @see org.openide.util.lookup.Lookups
  */
 public class EmployeeChildFactory extends ChildFactory<AddressSetEmployee> {
-    
-    private List<AddressSetEmployee> resultList;
-    
-   public EmployeeChildFactory() {
-    }
-   
-    /**
-     * The Construtor
-     * @param resultList 
-     */
-    public EmployeeChildFactory(List<AddressSetEmployee> resultList) {
-        this.resultList = resultList;
-    }   
 
+  private List<AddressSetEmployee> resultList;
 
-    
-    /**
-     * Create the Key
-     * Create a List of Employee's for Display
-     * @param list - the List to create
-     * @return true if the list created correct.
-     */
-    @Override
-    protected boolean createKeys(List<AddressSetEmployee> list) {
-        for (AddressSetEmployee employee : resultList) {
-            list.add(employee);
-        }
-        return true;
+  public EmployeeChildFactory() {}
+
+  /**
+   * The Construtor
+   * @param resultList
+   */
+  public EmployeeChildFactory(List<AddressSetEmployee> resultList) {
+    this.resultList = resultList;
+  }
+
+  /**
+   * Create the Key
+   * Create a List of Employee's for Display
+   * @param list - the List to create
+   * @return true if the list created correct.
+   */
+  @Override
+  protected boolean createKeys(List<AddressSetEmployee> list) {
+    for (AddressSetEmployee employee : resultList) {
+      list.add(employee);
     }
-    
-    /**
-     * Create a new BeanNode
-     * @param e - the Employee
-     * @return the BeanNode 
-     * @exception IntrospectionException by Error return null
-     */
-    @Override
-    protected Node createNodeForKey(AddressSetEmployee e) {
-        try {
-            return new EmployeeBeanNode(e);
-        } catch (IntrospectionException ex) {
-            Exceptions.printStackTrace(ex);
-            return null;
-        }
+    return true;
+  }
+
+  /**
+   * Create a new BeanNode
+   * @param e - the Employee
+   * @return the BeanNode
+   * @exception IntrospectionException by Error return null
+   */
+  @Override
+  protected Node createNodeForKey(AddressSetEmployee e) {
+    try {
+      return new EmployeeBeanNode(e);
+    } catch (IntrospectionException ex) {
+      Exceptions.printStackTrace(ex);
+      return null;
     }
-    
-    /**
-     *
-     */
-    private class EmployeeBeanNode extends BeanNode {
-        public EmployeeBeanNode(AddressSetEmployee bean) throws IntrospectionException {
-            super(bean, Children.LEAF, Lookups.singleton(bean));
-        }
+  }
+
+  /**
+   *
+   */
+  private class EmployeeBeanNode extends BeanNode {
+    public EmployeeBeanNode(AddressSetEmployee bean)
+        throws IntrospectionException {
+      super(bean, Children.LEAF, Lookups.singleton(bean));
     }
+  }
 }

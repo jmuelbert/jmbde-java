@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.jmuelbert</groupId>
     <artifactId>jmbde</artifactId>
@@ -12,8 +11,6 @@
         <maven.compiler.release>19</maven.compiler.release>
         <javafx.version>24-ea+5</javafx.version>
         <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
-        <sonar.organization>jmuelbert</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <name>jmbde</name>
@@ -23,7 +20,7 @@
         computers, printers, phones an keycards.
     </description>
 
-    <url>http://www.juergen-muelbert.de/</url>
+    <url>https://jmuelbert.github.io</url>
 
     <licenses>
         <license>
