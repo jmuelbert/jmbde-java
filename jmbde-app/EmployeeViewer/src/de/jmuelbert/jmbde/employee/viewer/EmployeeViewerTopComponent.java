@@ -149,7 +149,7 @@ public final class EmployeeViewerTopComponent
   /**
    * Get the Explorer Manager.
    * @return em
-   * @see ExporerManager
+   * @see ExplorerManager
    */
   @Override
   public ExplorerManager getExplorerManager() {

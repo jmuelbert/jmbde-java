@@ -186,3 +186,21 @@ jobs:
           experimental_apply_changes_via_bot: 1
           checkout: true
           ssh_key: "${{ secrets.CHECK_SPELLING }}"
+
+  # https://github.com/marketplace/actions/alls-green#why
+  release-all-green: # This job does nothing and is only used for the branch protection
+    if: always()
+    needs:
+      - spelling
+      - comment-push
+      - comment-pr
+      - update
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Decide whether the needed jobs succeeded or failed
+        uses: re-actors/alls-green@223e4bb7a751b91f43eda76992bcfbf23b8b0302 # v1.2.2
+        with:
+          allowed-skips: comment-push, comment-pr, update
+          jobs: ${{ toJSON(needs) }}

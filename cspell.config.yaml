@@ -19,16 +19,17 @@ ignorePaths:
   - .prettierignore
   - CHANGELOG.md
   - LICENSE
+  - license.txt
   - '**/{report,site,LICENSES,docs/about/EUPL-1.2.md}/**'
   - cspell.config.yaml
-  - .github/styles/vale/**
+  - '**/styles/vale/**'
+  - '**/nbproject/**'
 words:
   - jmuelbert
   - Jürgen
+  - juergen
   - Mülbert
-  - anniversaryreminder
-  - jmbde
-  - jmbdesqlite
+  - muelbert
   - Astro
   - astrojs
   - HSTS

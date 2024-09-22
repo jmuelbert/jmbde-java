@@ -21,17 +21,10 @@
 
 # Normally, *.ui, *.cpp and *.h files are reviewed by the core-cpp team only
 # All files containing UI text are reviewed by the ui-review team
-*.cpp                           @jmuelbert
-*.h                             @jmuelbert
-*.ui                            @jmuelbert
+*.java                          @jmuelbert
 
 # The lua-interface team is also reviewing everything below the mudlet-lua
 # folder and some pre-installed packages
-/src/app                        @jmuelbert
-/src/appquick                   @jmuelbert
-/src/libs/models                @jmuelbert
-/src/libs/quick                 @jmuelbert
-/src/libs/widgets               @jmuelbert
-
-CMakeLists.txt                  @jmuelbert
-/cmake/                         @jmuelbert
+/jmbde-app                      @jmuelbert
+/jmbde-datamodel                @jmuelbert
+/src                            @jmuelbert

@@ -21,8 +21,8 @@ body:
         Relevant links to check before opening a question to see if your question has already been answered, fixed or
         if there's another way to solve your problem:
 
-        [jmbde-java documentation with the integrated search](https://jmuelbert.github.io/developer/jmbde-java/),
-        [API Reference](https://jmuelbert.github.io/developer/jmbde-java/developer/api/),
+        [jmbde-java documentation with the integrated search](https://jmuelbert.github.io/jmbde-java/),
+        [API Reference](https://jmuelbert.github.io/jmbde-java/developer/api/),
         [GitHub search](https://github.com/jmuelbert/jmbde-java),
         [jmbde-java Github Discussions](https://github.com/jmuelbert/jmbde-java/discussions),
         [jmbde-java Github Issues](https://github.com/jmuelbert/jmbde-java/issues?q=is%3Aissue),
@@ -70,7 +70,7 @@ body:
       placeholder: |
         from jmbde-java.cli import main
 
-      render: python
+      render: java
     validations:
       required: true
   - type: textarea

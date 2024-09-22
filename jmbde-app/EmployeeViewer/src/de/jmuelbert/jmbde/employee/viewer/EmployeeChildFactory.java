@@ -54,7 +54,7 @@ public class EmployeeChildFactory extends ChildFactory<AddressSetEmployee> {
   public EmployeeChildFactory() {}
 
   /**
-   * The Construtor
+   * The Constructor
    * @param resultList
    */
   public EmployeeChildFactory(List<AddressSetEmployee> resultList) {

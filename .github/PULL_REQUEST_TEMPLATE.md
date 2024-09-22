@@ -31,9 +31,9 @@
 - [ ] If there are changes of the text displayed in the UI, they are wrapped in `tr()`
       or `QCoreApplication::translate()`.
 - [ ] If needed, I have opened a pull request or an issue to update the
-      [documentation](http://jmuelbert.github.io/qt_conan_boilerplate_template/).
+      [documentation](http://jmuelbert.github.io/jmbde-java/).
 - [ ] If these changes are notable, they are documented in
-      [CHANGELOG.md](https://github.com/jmuelbert/qt_conan_boilerplate_template/blob/master/CHANGELOG.md).
+      [CHANGELOG.md](https://github.com/jmuelbert/jmbde-java/blob/main/CHANGELOG.md).
 
 ## Additional text
 
