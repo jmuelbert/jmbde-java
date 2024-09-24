@@ -20,10 +20,17 @@ body:
     validations:
       required: true
   - type: input
-    id: dotnet-version
+    id: java-version
     attributes:
-      label: What version of `dotnet` are you using?
-      placeholder: 7.0.0
+      label: What version of `java` are you using?
+      placeholder: 22.0.2
+    validations:
+      required: true
+  - type: input
+    id: maven-version
+    attributes:
+      label: What version of `maven` are you using?
+      placeholder: 3.9.9
     validations:
       required: true
   - type: input

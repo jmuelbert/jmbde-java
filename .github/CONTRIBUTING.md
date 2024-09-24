@@ -71,13 +71,13 @@ Make sure you have a [GitHub](https://github.com/) account.
 - Clone your fork locally.
 
 ```bash
-git clone https://github.com/jmuelbert/jmbde-javas/
+Git clone https://github.com/jmuelbert/jmbde-javas/
 ```
 
 - Add an upstream remote.
 
 ```bash
-git remote add upstream https://github.com/YOUR-USERNAME/jmbde-javas
+Git remote add upstream https://github.com/YOUR-USERNAME/jmbde-javas
 ```
 
 You now have two remotes: _upstream_ points to
@@ -106,10 +106,10 @@ request from main - always from a feature branch created by you.
 - Get any changes from _upstream_.
 
 ```bash
-git checkout dev
-git fetch upstream
-git merge --ff-only upstream/dev
-git push origin dev
+Git checkout dev
+Git fetch upstream
+Git merge --ff-only upstream/dev
+Git push origin dev
 #(optional) this makes sure dev in your own fork on GitHub is up to date
 ```
 
@@ -122,7 +122,7 @@ See <https://help.github.com/articles/fetching-a-remote> for more info
   others can see what is being worked on.
 
 ```bash
-git checkout -b my-new-branch-123
+Git checkout -b my-new-branch-123
 ```
 
 - Work on your feature. Commit.
@@ -132,7 +132,7 @@ git checkout -b my-new-branch-123
 - Push the branch to your fork on GitHub
 
 ```bash
-git push origin my-new-branch-123
+Git push origin my-new-branch-123
 ```
 
 - Send a Pull Request, see
@@ -152,15 +152,15 @@ upstream _dev_ may be updated. If this happens you should:
   changes you need to
 
 ```bash
-git stash
+Git stash
 ```
 
 - Update your local _dev_ by fetching from _upstream_
 
 ```bash
-git checkout dev
-git fetch upstream
-git merge --ff-only upstream/dev
+Git checkout dev
+Git fetch upstream
+Git merge --ff-only upstream/dev
 ```
 
 - Rebase your feature branch on _dev_. See
@@ -168,9 +168,9 @@ git merge --ff-only upstream/dev
   for more info on rebasing
 
 ```bash
-git checkout my-new-branch-123
-git rebase dev
-git push origin dev
+Git checkout my-new-branch-123
+Git rebase dev
+Git push origin dev
 #(optional) this makes sure dev in your own fork on GitHub is up to date
 ```
 
@@ -194,10 +194,10 @@ If we ask you to change already published commits using interactive rebase
 to force push using `-f`:
 
 ```bash
-git push -f origin my-new-branch-123
+Git push -f origin my-new-branch-123
 ```
 
-### All my commits are on develop. How do I get them to a new branch?
+### All my commits are on develop. How do I get them to a new branch
 
 If all commits are on _develop_ you need to move them to a new feature
 branch.
@@ -206,21 +206,21 @@ You can rebase your local _develop_ on _upstream/develop_ (to remove any
 merge commits), rename it, and recreate _develop_
 
 ```bash
-git checkout develop
-git rebase upstream/develop
-git branch -m my-new-branch-123
-git branch develop upstream/develop
+Git checkout develop
+Git rebase upstream/develop
+Git branch -m my-new-branch-123
+Git branch develop upstream/develop
 ```
 
 Or you can create a new branch off of _develop_ and then cherry pick the
 commits
 
 ```bash
-git checkout -b my-new-branch-123 upstream/develop
-git cherry-pick rev                   #rev is the revisions you want to pick
-git cherry-pick rev                   #repeat until you have picked all commits
-git branch -m develop old-develop     #rename dev
-git branch develop upstream/develop   #create a new dev
+Git checkout -b my-new-branch-123 upstream/develop
+Git cherry-pick rev                   #rev is the revisions you want to pick
+Git cherry-pick rev                   #repeat until you have picked all commits
+Git branch -m develop old-develop     #rename dev
+Git branch develop upstream/develop   #create a new dev
 ```
 
 ## Code guidelines

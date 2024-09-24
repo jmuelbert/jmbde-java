@@ -35,7 +35,7 @@
         <developer>
             <id>jmuelbert</id>
             <name>Jürgen Mülbert</name>
-            <email>juergen.muelbert@web.de</email>
+            <email>juergen.muelbert@outlook.de</email>
             <url>https://jmuelbert.github.io</url>
             <roles>
                 <role>architect</role>
@@ -95,5 +95,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

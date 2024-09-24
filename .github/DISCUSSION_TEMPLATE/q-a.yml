@@ -94,23 +94,15 @@ body:
       description: |
         Please share your system info with us.
 
-        "pip freeze | grep jmbde-java"
+        "mvn --version" - Get the Java Version, the maven version and the OS version
         platform (windows / linux / mac)
-        python version
 
         OR if you're on a recent version of jmbde-java you can paste the output of:
 
-        python -m jmbde-java
       placeholder: |
-        "pip freeze | grep jmbde-java"
+        "mvn -v"
         platform
-        python version
+        java version
 
-        Alternatively, if you're on a recent version of jmbde-java you can paste the output of:
-
-        python -m jmbde-java
-
-        These will only surface jmbde-java packages, don't forget to include any other relevant
-        packages you're using (if you're not sure what's relevant, you can paste the entire output of `pip freeze`).
     validations:
       required: true

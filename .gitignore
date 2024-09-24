@@ -1,10 +1,6 @@
 # Additions
 .cspellcache
 
-# docs
-build/doxy
-
-
 # Add https://github.com/github/gitignore/blob/main/Gradle.gitignore
 .gradle
 **/build/

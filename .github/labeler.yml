@@ -13,8 +13,8 @@ documentation:
 # Add 'source' label to any change to src files within the source dir EXCEPT for the docs sub-folder
 'source':
   - changed-files:
-      - any-glob-to-any-file: 'src/app/**/*'
-      - all-globs-to-all-files: '!src/app/docs/**'
+      - any-glob-to-any-file: 'src/**/*'
+      - all-globs-to-all-files: '!src/docs/**'
 
 'github_actions':
   - changed-files:
