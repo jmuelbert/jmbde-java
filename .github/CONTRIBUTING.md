@@ -1,7 +1,7 @@
-# Contributing to jmbde-javas
+# Contributing to jmbde-java
 
-jmbde-javas is a large project and contributions are more than welcome, so
-thank you for wanting to contribute to jmbde-javas!
+jmbde-java is a large project and contributions are more than welcome, so
+thank you for wanting to contribute to jmbde-java!
 
 ---
 
@@ -14,7 +14,7 @@ but they must be relevant as explained below.
   feature branch, and not from _develop_. See below for why.
 - **No merge-commits** If you have commits that looks like this _"Merge
   branch 'my-branch' into develop"_ or _"Merge branch 'develop' of
-  <https://github.com/jmuelbert/jmbde-javas/> into develop"_ you're
+  <https://github.com/jmuelbert/jmbde-java/> into develop"_ you're
   probably using merge instead of
   [rebase](https://help.github.com/articles/about-git-rebase) locally. See
   below on _Handling updates from upstream_.
@@ -66,12 +66,12 @@ Make sure you have a [GitHub](https://github.com/) account.
   [Fork a repo](https://help.github.com/articles/fork-a-repo) for more
   detailed instructions or follow the instructions below.
 
-- Fork by clicking _Fork_ on <https://github.com/jmuelbert/jmbde-javas/>
+- Fork by clicking _Fork_ on <https://github.com/jmuelbert/jmbde-java/>
 
 - Clone your fork locally.
 
 ```bash
-Git clone https://github.com/jmuelbert/jmbde-javas/
+Git clone https://github.com/jmuelbert/jmbde-java/
 ```
 
 - Add an upstream remote.
@@ -81,13 +81,13 @@ Git remote add upstream https://github.com/YOUR-USERNAME/jmbde-javas
 ```
 
 You now have two remotes: _upstream_ points to
-<https://github.com/jmuelbert/jmbde-javas/>, and _origin_ points to your
+<https://github.com/jmuelbert/jmbde-java/>, and _origin_ points to your
 fork on GitHub.
 
 - Make changes. See below.
 
 Unsure where to start? Issues marked with
-[_up for grabs_](https://github.com/jmuelbert/jmbde-javas/labels/up%20for%20grabs)
+[_up for grabs_](https://github.com/jmuelbert/jmbde-java/labels/up%20for%20grabs)
 are things we want help with.
 
 See also:
@@ -101,7 +101,7 @@ New to Git? See
 **Never** work directly on _dev_ or _main_ and you should never send a pull
 request from main - always from a feature branch created by you.
 
-- Pick an [issue](https://github.com/jmuelbert/jmbde-javas/issues/). If no
+- Pick an [issue](https://github.com/jmuelbert/jmbde-java/issues/). If no
   issue exists (search first) create one.
 - Get any changes from _upstream_.
 
@@ -225,9 +225,6 @@ Git branch develop upstream/develop   #create a new dev
 
 ## Code guidelines
 
-See our [Python Style Guide](https://www.python.org/doc/essays/styleguide/)
-and the
-[Python Naming Convention](https://github.com/naming-convention/naming-convention-guides/blob/master/python/README.md)
-on GitHub for more information on following the project's conventions.
+See our [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
 
 ---

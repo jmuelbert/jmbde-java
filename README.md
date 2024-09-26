@@ -1,3 +1,4 @@
+<!-- TODO: #85 Rewrite README.md -->
 # checkconnect
 
 <div align="center">
