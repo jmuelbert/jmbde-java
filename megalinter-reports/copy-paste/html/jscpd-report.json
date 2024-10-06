@@ -1,6 +1,6 @@
 {
   "statistics": {
-    "detectionDate": "2024-09-24T08:36:46.821Z",
+    "detectionDate": "2024-10-04T08:47:11.205Z",
     "formats": {
       "java": {
         "sources": {
@@ -629,8 +629,8 @@
             "newClones": 0
           },
           "src/main/java/de/jmuelbert/jmbde/App.java": {
-            "lines": 34,
-            "tokens": 275,
+            "lines": 62,
+            "tokens": 321,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -654,14 +654,14 @@
           }
         },
         "total": {
-          "lines": 6634,
-          "tokens": 48539,
+          "lines": 6662,
+          "tokens": 48585,
           "sources": 54,
           "clones": 116,
           "duplicatedLines": 2126,
           "duplicatedTokens": 15061,
-          "percentage": 32.05,
-          "percentageTokens": 31.03,
+          "percentage": 31.91,
+          "percentageTokens": 31,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
@@ -1482,7 +1482,7 @@
           },
           "docs/README.md": {
             "lines": 52,
-            "tokens": 441,
+            "tokens": 433,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -1614,7 +1614,7 @@
           },
           "SECURITY.md": {
             "lines": 16,
-            "tokens": 191,
+            "tokens": 183,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -1625,8 +1625,8 @@
             "newClones": 0
           },
           "README.md": {
-            "lines": 85,
-            "tokens": 639,
+            "lines": 88,
+            "tokens": 643,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -1650,14 +1650,14 @@
           }
         },
         "total": {
-          "lines": 2089,
-          "tokens": 56723,
+          "lines": 2092,
+          "tokens": 56711,
           "sources": 24,
           "clones": 15,
           "duplicatedLines": 687,
           "duplicatedTokens": 22411,
-          "percentage": 32.89,
-          "percentageTokens": 39.51,
+          "percentage": 32.84,
+          "percentageTokens": 39.52,
           "newDuplicatedLines": 0,
           "newClones": 0
         }
@@ -1741,8 +1741,8 @@
             "newClones": 0
           },
           ".vscode/settings.json": {
-            "lines": 15,
-            "tokens": 95,
+            "lines": 13,
+            "tokens": 80,
             "sources": 1,
             "clones": 0,
             "duplicatedLines": 0,
@@ -1862,8 +1862,8 @@
           }
         },
         "total": {
-          "lines": 406,
-          "tokens": 2226,
+          "lines": 404,
+          "tokens": 2211,
           "sources": 13,
           "clones": 0,
           "duplicatedLines": 0,
@@ -2023,24 +2023,12 @@
             "percentageTokens": 0,
             "newDuplicatedLines": 0,
             "newClones": 0
-          },
-          ".checkov.yml": {
-            "lines": 3,
-            "tokens": 13,
-            "sources": 1,
-            "clones": 0,
-            "duplicatedLines": 0,
-            "duplicatedTokens": 0,
-            "percentage": 0,
-            "percentageTokens": 0,
-            "newDuplicatedLines": 0,
-            "newClones": 0
           }
         },
         "total": {
-          "lines": 413,
-          "tokens": 1820,
-          "sources": 10,
+          "lines": 410,
+          "tokens": 1807,
+          "sources": 9,
           "clones": 0,
           "duplicatedLines": 0,
           "duplicatedTokens": 0,
@@ -2108,13 +2096,13 @@
       }
     },
     "total": {
-      "lines": 12202,
-      "tokens": 128892,
-      "sources": 162,
+      "lines": 12228,
+      "tokens": 128898,
+      "sources": 161,
       "clones": 155,
       "duplicatedLines": 3423,
       "duplicatedTokens": 42845,
-      "percentage": 28.05,
+      "percentage": 27.99,
       "percentageTokens": 33.24,
       "newDuplicatedLines": 0,
       "newClones": 0

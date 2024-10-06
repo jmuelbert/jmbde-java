@@ -148,7 +148,7 @@ See also:
 While you're working away in your branch it's quite possible that your
 upstream _dev_ may be updated. If this happens you should:
 
-- [Stash](https://git-scm.com/book/en/Git-Tools-Stashing) any un-committed
+- [Stash](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning) any un-committed
   changes you need to
 
 ```bash
@@ -164,7 +164,7 @@ Git merge --ff-only upstream/dev
 ```
 
 - Rebase your feature branch on _dev_. See
-  [Git Branching - Rebasing](https://git-scm.com/book/en/Git-Branching-Rebasing)
+  [Git Branching - Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
   for more info on rebasing
 
 ```bash

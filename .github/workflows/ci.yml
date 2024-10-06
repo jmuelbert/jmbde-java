@@ -1,4 +1,7 @@
 ---
+# SPDX-FileCopyrightText: Juergen Mülbert
+# SPDX-License-Identifier: BSD-3-Clause
+#
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
 
@@ -14,6 +17,13 @@ on: # yamllint disable-line rule:truthy
     branches: [main, develop, release]
   pull_request:
     branches: ["main"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -79,7 +89,7 @@ jobs:
     if: always()
     needs:
       - build
-      - test
+      - tests
       - site
 
     runs-on: ubuntu-latest

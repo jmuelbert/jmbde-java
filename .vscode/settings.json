@@ -1,5 +1,4 @@
 {
-    "esbonio.server.enabled": true,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -11,6 +10,5 @@
         "**/.factorypath": true,
         "**/.project": true,
         "**/.settings": true
-    },
-    "explorerExclude.backup": {}
+    }
 }

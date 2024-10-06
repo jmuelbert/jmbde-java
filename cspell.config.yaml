@@ -17,6 +17,7 @@ ignorePaths:
   - .devcontainer/.dockerignore
   - .git*
   - .prettierignore
+  - .codespellrc
   - CHANGELOG.md
   - LICENSE
   - license.txt

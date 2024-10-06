@@ -1,6 +1,6 @@
 rules:
   # id, pattern, message are required attributes.
-  - id: com.github.jmuelbert.JMPlasterTemplates
+  - id: com.github.jmuelbert.jmbde-java
     pattern: Github
     severity: warning
     message: Do you want to write GitHub?

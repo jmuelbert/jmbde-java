@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>de.jmuelbert</groupId>
     <artifactId>jmbde</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <name>jmbde</name>
+    <description>
+        jmbde is a BDE Tool that collects data on employees, computers, printers, phones, and keycards.
+    </description>
+    <url>https://jmuelbert.github.io</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -12,15 +19,6 @@
         <javafx.version>24-ea+5</javafx.version>
         <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
     </properties>
-
-    <name>jmbde</name>
-    <description>
-        jmbde is a little BDE Tool. Within
-        can collect data of employee's,
-        computers, printers, phones an keycards.
-    </description>
-
-    <url>https://jmuelbert.github.io</url>
 
     <licenses>
         <license>
@@ -41,9 +39,7 @@
                 <role>architect</role>
                 <role>developer</role>
             </roles>
-            <timezone>
-                +1
-            </timezone>
+            <timezone>+1</timezone>
         </developer>
     </developers>
 
@@ -77,7 +73,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.8.1</version> <!-- Updated to a more recent version -->
                 <configuration>
                     <release>${maven.compiler.release}</release>
                 </configuration>
