@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-AutoUpdate-Show-In-Client: true
-OpenIDE-Module: com.mysql.jdbc.Driver
-OpenIDE-Module-Localizing-Bundle: com/mysql/jdbc/Driver/Bundle.properties
-OpenIDE-Module-Specification-Version: 1.0
-

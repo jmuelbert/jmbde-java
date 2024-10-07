@@ -1,0 +1,35 @@
+---
+title: Welcome to jmbde-java
+description: Get started with jmbde-java.
+template: splash
+hero:
+  tagline: Congrats to use the jmbde-java application!
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Example Guide
+      link: /guides/example/
+      icon: right-arrow
+    - text: Read the jmbde-java docs
+      link: https://jmuelbert.github.io/jmbde-java/
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Next steps
+
+<CardGrid stagger>
+	<Card title="Update content" icon="pencil">
+		Edit `docs/src/content/docs/index.mdx` to see this page change.
+	</Card>
+	<Card title="Add new content" icon="add-document">
+		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	</Card>
+	<Card title="Configure your site" icon="setting">
+		Edit your `sidebar` and other config in `astro.config.mjs`.
+	</Card>
+	<Card title="Read the docs" icon="open-book">
+		Learn more in [the jmbde-java Docs](https://jmuelbert.github.io/jmbde-java/).
+	</CardGrid>

@@ -9,13 +9,13 @@
 
 <!--- If your PR fixes/resolves one or more issues, or is related to
     another PR, link to them here. -->
-<!--- See: https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword --->
+<!--- See: https://docs.GitHub.com/en/free-pro-team@latest/GitHub/managing-your-work-on-GitHub/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword --->
 
 ## Motivation and Context
 
 <!--- Why is this change required? What problem does it solve? -->
 
-## How Has This Been Tested?
+## How Has This Been Tested
 
 <!--- Tested on which OS(s)? Tested on light/dark system theme? -->
 
@@ -31,9 +31,9 @@
 - [ ] If there are changes of the text displayed in the UI, they are wrapped in `tr()`
       or `QCoreApplication::translate()`.
 - [ ] If needed, I have opened a pull request or an issue to update the
-      [documentation](http://jmuelbert.github.io/qt_conan_boilerplate_template/).
+      [documentation](http://jmuelbert.github.io/jmbde-java/).
 - [ ] If these changes are notable, they are documented in
-      [CHANGELOG.md](https://github.com/jmuelbert/qt_conan_boilerplate_template/blob/master/CHANGELOG.md).
+      [CHANGELOG.md](https://github.com/jmuelbert/jmbde-java/blob/main/CHANGELOG.md).
 
 ## Additional text
 
