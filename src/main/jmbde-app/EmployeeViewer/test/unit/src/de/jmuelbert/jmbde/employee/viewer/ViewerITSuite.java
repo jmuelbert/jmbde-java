@@ -13,16 +13,15 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- *
  * @author jurgenmulbert
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses(
-    {de.jmuelbert.jmbde.employee.viewer.EmployeeRootRefreshActionListenerIT
-         .class,
-     de.jmuelbert.jmbde.employee.viewer.EmployeeRootNodeIT.class,
-     de.jmuelbert.jmbde.employee.viewer.EmployeeViewerTopComponentIT.class,
-     de.jmuelbert.jmbde.employee.viewer.EmployeeChildFactoryIT.class})
+@Suite.SuiteClasses({
+  de.jmuelbert.jmbde.employee.viewer.EmployeeRootRefreshActionListenerIT.class,
+  de.jmuelbert.jmbde.employee.viewer.EmployeeRootNodeIT.class,
+  de.jmuelbert.jmbde.employee.viewer.EmployeeViewerTopComponentIT.class,
+  de.jmuelbert.jmbde.employee.viewer.EmployeeChildFactoryIT.class
+})
 public class ViewerITSuite {
 
   @BeforeClass

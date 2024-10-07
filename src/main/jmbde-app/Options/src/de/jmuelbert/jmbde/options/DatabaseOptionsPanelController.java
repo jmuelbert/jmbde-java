@@ -13,15 +13,15 @@ import org.netbeans.spi.options.OptionsPanelController;
 import org.openide.util.HelpCtx;
 import org.openide.util.Lookup;
 
-@OptionsPanelController.
-SubRegistration(displayName = "#AdvancedOption_DisplayName_Database",
-                keywords = "#AdvancedOption_Keywords_Database",
-                keywordsCategory = "Advanced/Database")
-@org.openide.util.NbBundle.
-Messages({"AdvancedOption_DisplayName_Database=Database",
-          "AdvancedOption_Keywords_Database=Database"})
-public final class DatabaseOptionsPanelController
-    extends OptionsPanelController {
+@OptionsPanelController.SubRegistration(
+    displayName = "#AdvancedOption_DisplayName_Database",
+    keywords = "#AdvancedOption_Keywords_Database",
+    keywordsCategory = "Advanced/Database")
+@org.openide.util.NbBundle.Messages({
+  "AdvancedOption_DisplayName_Database=Database",
+  "AdvancedOption_Keywords_Database=Database"
+})
+public final class DatabaseOptionsPanelController extends OptionsPanelController {
 
   private DatabasePanel panel;
   private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
@@ -35,13 +35,14 @@ public final class DatabaseOptionsPanelController
 
   @Override
   public void applyChanges() {
-    SwingUtilities.invokeLater(new Runnable() {
-      @Override
-      public void run() {
-        getPanel().store();
-        changed = false;
-      }
-    });
+    SwingUtilities.invokeLater(
+        new Runnable() {
+          @Override
+          public void run() {
+            getPanel().store();
+            changed = false;
+          }
+        });
   }
 
   @Override
@@ -64,7 +65,9 @@ public final class DatabaseOptionsPanelController
     return null; // new HelpCtx("...ID") if you have a help set
   }
 
-  public JComponent getComponent(Lookup masterLookup) { return getPanel(); }
+  public JComponent getComponent(Lookup masterLookup) {
+    return getPanel();
+  }
 
   @Override
   public void addPropertyChangeListener(PropertyChangeListener l) {

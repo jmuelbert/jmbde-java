@@ -47,17 +47,17 @@ updates:
       prefix: fix(pip)
 
   # Maintain dependencies for npm
-  - package-ecosystem: 'npm'
-    directory: '/'
+  - package-ecosystem: npm
+    directory: /
     schedule:
-      interval: 'monthly'
+      interval: monthly
     commit-message:
       prefix: fix(npm)
 
   # Maintain dependencies for npm
-  - package-ecosystem: 'npm'
-    directory: '/docs'
+  - package-ecosystem: npm
+    directory: /docs
     schedule:
-      interval: 'monthly'
+      interval: monthly
     commit-message:
       prefix: fix(npm for astrodoc)

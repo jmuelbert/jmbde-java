@@ -1,25 +1,19 @@
 /**
  * JMBDE - Datamodel
  *
+ * <p>Created by Jürgen Mülbert on 07.12.2015 Copyright (c) 2015 Jürgen Mülbert. All rights
+ * reserved.
  *
- * Created by Jürgen Mülbert on 07.12.2015
- * Copyright (c) 2015 Jürgen Mülbert. All rights reserved.
+ * <p>This program is free software: you can redistribute it and/or modify it under the terms of the
+ * European Union Public Licence (EUPL), version 1.1.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the European Union Public Licence (EUPL),
- * version 1.1.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * European Union Public Licence for more details.
  *
- * You should have received a copy of the European Union Public Licence
- * along with this program. If not, see
- * https://tldrlegal.com/license/european-union-public-licence
- *
+ * <p>You should have received a copy of the European Union Public Licence along with this program.
+ * If not, see https://tldrlegal.com/license/european-union-public-licence
  */
-
 package de.jmuelbert.jmbde.datamodel;
 
 import java.io.Serializable;
@@ -40,41 +34,48 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  * The SoftwareSetProgram Entity
  *
- *
  * @author Jürgen Mülbert
  * @version 0.4
- *
  * @see SoftwareSet
  */
-
 @Entity
 @Table(name = "SoftwareSet_Program")
 @XmlRootElement
 @NamedQueries({
-  @NamedQuery(name = "SoftwareSetProgram.findAll",
-              query = "SELECT s FROM SoftwareSetProgram s")
-  ,
-      @NamedQuery(name = "SoftwareSetProgram.findById",
-                  query = "SELECT s FROM SoftwareSetProgram s WHERE s.id = :id")
+  @NamedQuery(name = "SoftwareSetProgram.findAll", query = "SELECT s FROM SoftwareSetProgram s"),
+  @NamedQuery(
+      name = "SoftwareSetProgram.findById",
+      query = "SELECT s FROM SoftwareSetProgram s WHERE s.id = :id")
 })
 public class SoftwareSetProgram implements Serializable {
 
   private static final long serialVersionUID = 1L;
-  @Id @Basic(optional = false) @Column(name = "Id") private Integer id;
+
+  @Id
+  @Basic(optional = false)
+  @Column(name = "Id")
+  private Integer id;
+
   @ManyToMany(mappedBy = "softwareSetProgramCollection")
   private Collection<DeviceSetComputer> deviceSetComputerCollection;
-  @JoinColumn(name = "Id", referencedColumnName = "Id", insertable = false,
-              updatable = false)
+
+  @JoinColumn(name = "Id", referencedColumnName = "Id", insertable = false, updatable = false)
   @OneToOne(optional = false)
   private SoftwareSet softwareSet;
 
   public SoftwareSetProgram() {}
 
-  public SoftwareSetProgram(Integer id) { this.id = id; }
+  public SoftwareSetProgram(Integer id) {
+    this.id = id;
+  }
 
-  public Integer getId() { return id; }
+  public Integer getId() {
+    return id;
+  }
 
-  public void setId(Integer id) { this.id = id; }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
   @XmlTransient
   public Collection<DeviceSetComputer> getDeviceSetComputerCollection() {
@@ -86,7 +87,9 @@ public class SoftwareSetProgram implements Serializable {
     this.deviceSetComputerCollection = deviceSetComputerCollection;
   }
 
-  public SoftwareSet getSoftwareSet() { return softwareSet; }
+  public SoftwareSet getSoftwareSet() {
+    return softwareSet;
+  }
 
   public void setSoftwareSet(SoftwareSet softwareSet) {
     this.softwareSet = softwareSet;
@@ -106,9 +109,8 @@ public class SoftwareSetProgram implements Serializable {
     if (!(object instanceof SoftwareSetProgram)) {
       return false;
     }
-    SoftwareSetProgram other = (SoftwareSetProgram)object;
-    if ((this.id == null && other.id != null) ||
-        (this.id != null && !this.id.equals(other.id))) {
+    SoftwareSetProgram other = (SoftwareSetProgram) object;
+    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
       return false;
     }
     return true;

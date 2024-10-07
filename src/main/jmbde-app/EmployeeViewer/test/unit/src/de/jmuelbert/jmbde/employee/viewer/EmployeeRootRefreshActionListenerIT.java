@@ -15,7 +15,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
  * @author jurgenmulbert
  */
 public class EmployeeRootRefreshActionListenerIT {
@@ -34,15 +33,12 @@ public class EmployeeRootRefreshActionListenerIT {
   @After
   public void tearDown() {}
 
-  /**
-   * Test of actionPerformed method, of class EmployeeRootRefreshActionListener.
-   */
+  /** Test of actionPerformed method, of class EmployeeRootRefreshActionListener. */
   @Test
   public void testActionPerformed() {
     System.out.println("actionPerformed");
     ActionEvent e = null;
-    EmployeeRootRefreshActionListener instance =
-        new EmployeeRootRefreshActionListener();
+    EmployeeRootRefreshActionListener instance = new EmployeeRootRefreshActionListener();
     instance.actionPerformed(e);
     // TODO review the generated test code and remove the default call to fail.
     fail("The test case is a prototype.");

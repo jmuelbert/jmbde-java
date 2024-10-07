@@ -30,7 +30,8 @@ Java 17 or higher is required to run jmbde-java.
 
 To get list of all available options, call
 
-```bash
+
+ ```bash
 jmbde-java --help
 ```
 

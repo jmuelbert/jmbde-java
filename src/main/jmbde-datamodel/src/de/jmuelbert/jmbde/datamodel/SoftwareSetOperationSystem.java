@@ -1,25 +1,19 @@
 /**
  * JMBDE - Datamodel
  *
+ * <p>Created by Jürgen Mülbert on 07.12.2015 Copyright (c) 2015 Jürgen Mülbert. All rights
+ * reserved.
  *
- * Created by Jürgen Mülbert on 07.12.2015
- * Copyright (c) 2015 Jürgen Mülbert. All rights reserved.
+ * <p>This program is free software: you can redistribute it and/or modify it under the terms of the
+ * European Union Public Licence (EUPL), version 1.1.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the European Union Public Licence (EUPL),
- * version 1.1.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * European Union Public Licence for more details.
  *
- * You should have received a copy of the European Union Public Licence
- * along with this program. If not, see
- * https://tldrlegal.com/license/european-union-public-licence
- *
+ * <p>You should have received a copy of the European Union Public Licence along with this program.
+ * If not, see https://tldrlegal.com/license/european-union-public-licence
  */
-
 package de.jmuelbert.jmbde.datamodel;
 
 import java.io.Serializable;
@@ -40,42 +34,50 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  * The SoftwareSetOperationSystem Entity
  *
- *
  * @author Jürgen Mülbert
  * @version 0.4
- *
  * @see SoftwareSet
  */
-
 @Entity
 @Table(name = "SoftwareSet_OperationSystem")
 @XmlRootElement
 @NamedQueries({
-  @NamedQuery(name = "SoftwareSetOperationSystem.findAll",
-              query = "SELECT s FROM SoftwareSetOperationSystem s")
-  ,
-      @NamedQuery(
-          name = "SoftwareSetOperationSystem.findById",
-          query = "SELECT s FROM SoftwareSetOperationSystem s WHERE s.id = :id")
+  @NamedQuery(
+      name = "SoftwareSetOperationSystem.findAll",
+      query = "SELECT s FROM SoftwareSetOperationSystem s"),
+  @NamedQuery(
+      name = "SoftwareSetOperationSystem.findById",
+      query = "SELECT s FROM SoftwareSetOperationSystem s WHERE s.id = :id")
 })
 public class SoftwareSetOperationSystem implements Serializable {
 
   private static final long serialVersionUID = 1L;
-  @Id @Basic(optional = false) @Column(name = "Id") private Integer id;
+
+  @Id
+  @Basic(optional = false)
+  @Column(name = "Id")
+  private Integer id;
+
   @OneToMany(mappedBy = "operationSystemId")
   private Collection<DeviceSetComputer> deviceSetComputerCollection;
-  @JoinColumn(name = "Id", referencedColumnName = "Id", insertable = false,
-              updatable = false)
+
+  @JoinColumn(name = "Id", referencedColumnName = "Id", insertable = false, updatable = false)
   @OneToOne(optional = false)
   private SoftwareSet softwareSet;
 
   public SoftwareSetOperationSystem() {}
 
-  public SoftwareSetOperationSystem(Integer id) { this.id = id; }
+  public SoftwareSetOperationSystem(Integer id) {
+    this.id = id;
+  }
 
-  public Integer getId() { return id; }
+  public Integer getId() {
+    return id;
+  }
 
-  public void setId(Integer id) { this.id = id; }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
   @XmlTransient
   public Collection<DeviceSetComputer> getDeviceSetComputerCollection() {
@@ -87,7 +89,9 @@ public class SoftwareSetOperationSystem implements Serializable {
     this.deviceSetComputerCollection = deviceSetComputerCollection;
   }
 
-  public SoftwareSet getSoftwareSet() { return softwareSet; }
+  public SoftwareSet getSoftwareSet() {
+    return softwareSet;
+  }
 
   public void setSoftwareSet(SoftwareSet softwareSet) {
     this.softwareSet = softwareSet;
@@ -107,9 +111,8 @@ public class SoftwareSetOperationSystem implements Serializable {
     if (!(object instanceof SoftwareSetOperationSystem)) {
       return false;
     }
-    SoftwareSetOperationSystem other = (SoftwareSetOperationSystem)object;
-    if ((this.id == null && other.id != null) ||
-        (this.id != null && !this.id.equals(other.id))) {
+    SoftwareSetOperationSystem other = (SoftwareSetOperationSystem) object;
+    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
       return false;
     }
     return true;
@@ -117,7 +120,6 @@ public class SoftwareSetOperationSystem implements Serializable {
 
   @Override
   public String toString() {
-    return "de.jmuelbert.jmbde.datamodel.SoftwareSetOperationSystem[ id=" + id +
-        " ]";
+    return "de.jmuelbert.jmbde.datamodel.SoftwareSetOperationSystem[ id=" + id + " ]";
   }
 }

@@ -18,6 +18,7 @@ runtimes:
     - python@3.10.8
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
+  disabled:
   ignore:
     - linters: [ALL]
       paths:
@@ -26,6 +27,10 @@ lint:
         - .github/styles/**
         - .venv/**
   enabled:
+    - cspell@8.14.4
+    - google-java-format@1.23.0
+    - sort-package-json@2.10.1
+    - vale@3.7.1
     - markdown-link-check@3.12.2
     - markdown-table-prettify@3.6.0
     - pmd@pmd_releases/7.6.0
@@ -50,12 +55,15 @@ lint:
     - svgo@3.3.2
     - taplo@0.9.3
     - trufflehog@3.82.6
-    - vale@3.7.1
     - yamllint@1.35.1
 actions:
   disabled:
-    - trunk-announce
     - trunk-check-pre-push
     - trunk-fmt-pre-commit
   enabled:
+    - git-blame-ignore-revs
+    - commitizen
+    - git-lfs
+    - trufflehog-pre-commit
+    - trunk-announce
     - trunk-upgrade-available

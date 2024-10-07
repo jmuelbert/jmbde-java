@@ -16,7 +16,6 @@ import org.junit.Test;
 import org.openide.util.LookupEvent;
 
 /**
- *
  * @author jurgenmulbert
  */
 public class EmployeeEditorTopComponentIT {
@@ -35,9 +34,7 @@ public class EmployeeEditorTopComponentIT {
   @After
   public void tearDown() {}
 
-  /**
-   * Test of componentOpened method, of class EmployeeEditorTopComponent.
-   */
+  /** Test of componentOpened method, of class EmployeeEditorTopComponent. */
   @Test
   public void testComponentOpened() {
     System.out.println("componentOpened");
@@ -47,9 +44,7 @@ public class EmployeeEditorTopComponentIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of componentClosed method, of class EmployeeEditorTopComponent.
-   */
+  /** Test of componentClosed method, of class EmployeeEditorTopComponent. */
   @Test
   public void testComponentClosed() {
     System.out.println("componentClosed");
@@ -59,9 +54,7 @@ public class EmployeeEditorTopComponentIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of writeProperties method, of class EmployeeEditorTopComponent.
-   */
+  /** Test of writeProperties method, of class EmployeeEditorTopComponent. */
   @Test
   public void testWriteProperties() {
     System.out.println("writeProperties");
@@ -72,9 +65,7 @@ public class EmployeeEditorTopComponentIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of readProperties method, of class EmployeeEditorTopComponent.
-   */
+  /** Test of readProperties method, of class EmployeeEditorTopComponent. */
   @Test
   public void testReadProperties() {
     System.out.println("readProperties");
@@ -85,9 +76,7 @@ public class EmployeeEditorTopComponentIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of resultChanged method, of class EmployeeEditorTopComponent.
-   */
+  /** Test of resultChanged method, of class EmployeeEditorTopComponent. */
   @Test
   public void testResultChanged() {
     System.out.println("resultChanged");
@@ -98,9 +87,7 @@ public class EmployeeEditorTopComponentIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of resetFields method, of class EmployeeEditorTopComponent.
-   */
+  /** Test of resetFields method, of class EmployeeEditorTopComponent. */
   @Test
   public void testResetFields() {
     System.out.println("resetFields");

@@ -33,7 +33,6 @@ import org.junit.Test;
 import org.openide.nodes.Node;
 
 /**
- *
  * @author Jürgen Mülbert
  * @version 1.0
  */
@@ -59,9 +58,7 @@ public class EmployeeChildFactoryIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of createKeys method, of class EmployeeChildFactory.
-   */
+  /** Test of createKeys method, of class EmployeeChildFactory. */
   @Test
   public void testCreateKeys() {
     System.out.println("createKeys");
@@ -74,9 +71,7 @@ public class EmployeeChildFactoryIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of createNodeForKey method, of class EmployeeChildFactory.
-   */
+  /** Test of createNodeForKey method, of class EmployeeChildFactory. */
   @Test
   public void testCreateNodeForKey() {
     System.out.println("createNodeForKey");

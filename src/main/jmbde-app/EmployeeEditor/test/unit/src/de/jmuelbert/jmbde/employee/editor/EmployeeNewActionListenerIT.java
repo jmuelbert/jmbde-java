@@ -15,7 +15,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
  * @author jurgenmulbert
  */
 public class EmployeeNewActionListenerIT {
@@ -34,9 +33,7 @@ public class EmployeeNewActionListenerIT {
   @After
   public void tearDown() {}
 
-  /**
-   * Test of actionPerformed method, of class EmployeeNewActionListener.
-   */
+  /** Test of actionPerformed method, of class EmployeeNewActionListener. */
   @Test
   public void testActionPerformed() {
     System.out.println("actionPerformed");

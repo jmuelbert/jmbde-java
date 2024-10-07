@@ -30,23 +30,21 @@ import org.openide.awt.ActionReference;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.WindowManager;
+
 /**
  * A Entry for Export Employee-Data
  *
- * Create an Action Listener
+ * <p>Create an Action Listener
  *
  * @author Jürgen Mülbert
  * @version 1.0
- *
  * @see ava.awt.event.ActionListener
  * @see org.openide.awt.ActionID
  * @see org.openide.awt.ActionReference
  * @see org.openide.awt.ActionRegistration
  * @see org.openide.util.NbBundle.Messages
  */
-@ActionID(id =
-              "de.jmuelbert.jmbde.employee.editor.EmployeeExportActionListener",
-          category = "File")
+@ActionID(id = "de.jmuelbert.jmbde.employee.editor.EmployeeExportActionListener", category = "File")
 @ActionRegistration(displayName = "#CTL_EmployeeExportActionListener")
 @ActionReference(path = "Menu/File", position = 1100)
 @Messages("CTL_EmployeeExportActionListener=Export")
@@ -55,7 +53,7 @@ public class EmployeeExportActionListener implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent e) {
     EmployeeEditorTopComponent tc =
-        (EmployeeEditorTopComponent)WindowManager.getDefault().findTopComponent(
-            "EmployeeEditorTopComponent");
+        (EmployeeEditorTopComponent)
+            WindowManager.getDefault().findTopComponent("EmployeeEditorTopComponent");
   }
 }

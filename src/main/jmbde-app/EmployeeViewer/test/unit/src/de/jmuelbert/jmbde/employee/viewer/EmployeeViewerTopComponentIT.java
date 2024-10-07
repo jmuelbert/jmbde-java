@@ -16,7 +16,6 @@ import org.junit.Test;
 import org.openide.explorer.ExplorerManager;
 
 /**
- *
  * @author jurgenmulbert
  */
 public class EmployeeViewerTopComponentIT {
@@ -35,9 +34,7 @@ public class EmployeeViewerTopComponentIT {
   @After
   public void tearDown() {}
 
-  /**
-   * Test of refreshNode method, of class EmployeeViewerTopComponent.
-   */
+  /** Test of refreshNode method, of class EmployeeViewerTopComponent. */
   @Test
   public void testRefreshNode() {
     System.out.println("refreshNode");
@@ -46,9 +43,7 @@ public class EmployeeViewerTopComponentIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of componentOpened method, of class EmployeeViewerTopComponent.
-   */
+  /** Test of componentOpened method, of class EmployeeViewerTopComponent. */
   @Test
   public void testComponentOpened() {
     System.out.println("componentOpened");
@@ -58,9 +53,7 @@ public class EmployeeViewerTopComponentIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of componentClosed method, of class EmployeeViewerTopComponent.
-   */
+  /** Test of componentClosed method, of class EmployeeViewerTopComponent. */
   @Test
   public void testComponentClosed() {
     System.out.println("componentClosed");
@@ -70,9 +63,7 @@ public class EmployeeViewerTopComponentIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of writeProperties method, of class EmployeeViewerTopComponent.
-   */
+  /** Test of writeProperties method, of class EmployeeViewerTopComponent. */
   @Test
   public void testWriteProperties() {
     System.out.println("writeProperties");
@@ -83,9 +74,7 @@ public class EmployeeViewerTopComponentIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of readProperties method, of class EmployeeViewerTopComponent.
-   */
+  /** Test of readProperties method, of class EmployeeViewerTopComponent. */
   @Test
   public void testReadProperties() {
     System.out.println("readProperties");
@@ -96,9 +85,7 @@ public class EmployeeViewerTopComponentIT {
     fail("The test case is a prototype.");
   }
 
-  /**
-   * Test of getExplorerManager method, of class EmployeeViewerTopComponent.
-   */
+  /** Test of getExplorerManager method, of class EmployeeViewerTopComponent. */
   @Test
   public void testGetExplorerManager() {
     System.out.println("getExplorerManager");

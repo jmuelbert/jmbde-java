@@ -15,7 +15,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- *
  * @author jurgenmulbert
  */
 public class EmployeeRootNodeIT {
@@ -34,9 +33,7 @@ public class EmployeeRootNodeIT {
   @After
   public void tearDown() {}
 
-  /**
-   * Test of getActions method, of class EmployeeRootNode.
-   */
+  /** Test of getActions method, of class EmployeeRootNode. */
   @Test
   public void testGetActions() {
     System.out.println("getActions");

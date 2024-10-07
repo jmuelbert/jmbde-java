@@ -1,6 +1,7 @@
 /**
  * The main class of the JavaFX application.
- * This class is responsible for launching the application and managing the main scene.
+ * This class is responsible for launching the application and managing the main
+ * scene.
  */
 package de.jmuelbert.jmbde;
 
@@ -21,9 +22,10 @@ public class App extends Application {
   /**
    * Starts the JavaFX application and sets the primary scene.
    *
-   * This method is called by the JavaFX runtime when the application is launched.
-   * It creates a new scene with the "primary" FXML layout and sets the scene on the
-   * provided stage. The stage is then shown to display the application.
+   * This method is called by the JavaFX runtime when the application is
+   * launched. It creates a new scene with the "primary" FXML layout and sets
+   * the scene on the provided stage. The stage is then shown to display the
+   * application.
    *
    * @param stage the primary stage for the application
    * @throws IOException if there is an error loading the FXML layout
@@ -36,9 +38,11 @@ public class App extends Application {
   }
 
   /**
-   * Sets the root node of the application's scene to the FXML layout specified by the given file name.
+   * Sets the root node of the application's scene to the FXML layout specified
+   * by the given file name.
    *
-   * @param fxml the name of the FXML file to load, without the ".fxml" extension
+   * @param fxml the name of the FXML file to load, without the ".fxml"
+   *     extension
    * @throws IOException if there is an error loading the FXML layout
    */
   static void setRoot(String fxml) throws IOException {
@@ -51,13 +55,12 @@ public class App extends Application {
     return fxmlLoader.load();
   }
 
-  /**
-   * Launches the JavaFX application.
-   */
-  public static void main(String[] args)
-  /**
-   * Launches the JavaFX application.
-   */
-  public static void main(String[] args)
-  public static void main(String[] args) { launch(); }
+
+      /**
+       * Launches the JavaFX application.
+       */
+      public static void main(String[] args) public static void main(
+          String[] args) {
+    launch();
+  }
 }

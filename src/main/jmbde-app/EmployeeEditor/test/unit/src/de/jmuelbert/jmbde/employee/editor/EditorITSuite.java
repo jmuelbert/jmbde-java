@@ -13,13 +13,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- *
  * @author jurgenmulbert
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses(
-    {de.jmuelbert.jmbde.employee.editor.EmployeeEditorTopComponentIT.class,
-     de.jmuelbert.jmbde.employee.editor.EmployeeNewActionListenerIT.class})
+@Suite.SuiteClasses({
+  de.jmuelbert.jmbde.employee.editor.EmployeeEditorTopComponentIT.class,
+  de.jmuelbert.jmbde.employee.editor.EmployeeNewActionListenerIT.class
+})
 public class EditorITSuite {
 
   @BeforeClass

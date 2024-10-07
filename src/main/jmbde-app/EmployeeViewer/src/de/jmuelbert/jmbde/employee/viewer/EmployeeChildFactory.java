@@ -1,24 +1,19 @@
 /**
  * JMBDE - EmployeeChildFactory
  *
- * Created by Jürgen Mülbert on 07.12.2015
- * Copyright (c) 2015 Jürgen Mülbert. All rights reserved.
+ * <p>Created by Jürgen Mülbert on 07.12.2015 Copyright (c) 2015 Jürgen Mülbert. All rights
+ * reserved.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the European Union Public Licence (EUPL),
- * version 1.1.
+ * <p>This program is free software: you can redistribute it and/or modify it under the terms of the
+ * European Union Public Licence (EUPL), version 1.1.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * European Union Public Licence for more details.
  *
- * You should have received a copy of the European Union Public Licence
- * along with this program. If not, see
- * https://tldrlegal.com/license/european-union-public-licence
- *
+ * <p>You should have received a copy of the European Union Public Licence along with this program.
+ * If not, see https://tldrlegal.com/license/european-union-public-licence
  */
-
 package de.jmuelbert.jmbde.employee.viewer;
 
 import de.jmuelbert.jmbde.datamodel.AddressSetEmployee;
@@ -36,7 +31,6 @@ import org.openide.util.lookup.Lookups;
  *
  * @author Jürgen Mülbert
  * @version 0.2
- *
  * @see de.jmuelbert.jmbde.datamodel.Employee
  * @see java.beans.IntrospectionException
  * @see java.util.List
@@ -55,6 +49,7 @@ public class EmployeeChildFactory extends ChildFactory<AddressSetEmployee> {
 
   /**
    * The Constructor
+   *
    * @param resultList
    */
   public EmployeeChildFactory(List<AddressSetEmployee> resultList) {
@@ -62,8 +57,8 @@ public class EmployeeChildFactory extends ChildFactory<AddressSetEmployee> {
   }
 
   /**
-   * Create the Key
-   * Create a List of Employee's for Display
+   * Create the Key Create a List of Employee's for Display
+   *
    * @param list - the List to create
    * @return true if the list created correct.
    */
@@ -77,6 +72,7 @@ public class EmployeeChildFactory extends ChildFactory<AddressSetEmployee> {
 
   /**
    * Create a new BeanNode
+   *
    * @param e - the Employee
    * @return the BeanNode
    * @exception IntrospectionException by Error return null
@@ -91,12 +87,9 @@ public class EmployeeChildFactory extends ChildFactory<AddressSetEmployee> {
     }
   }
 
-  /**
-   *
-   */
+  /** */
   private class EmployeeBeanNode extends BeanNode {
-    public EmployeeBeanNode(AddressSetEmployee bean)
-        throws IntrospectionException {
+    public EmployeeBeanNode(AddressSetEmployee bean) throws IntrospectionException {
       super(bean, Children.LEAF, Lookups.singleton(bean));
     }
   }
